@@ -1,6 +1,9 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 from main_panel import Ui_MainWindow
 from manege_fight_area_window import Ui_FightManageWindow
+from data_sourse import Ui_DataSource
+
 import sys
 
 
@@ -31,6 +34,27 @@ def start_app():
 
         FIGHT_AREA_WINDOWS[-1][0].show()
 
+    def chose_data_source():
+        global DataSource
+        DataSource = QtWidgets.QMainWindow()
+        data_source_ui = Ui_DataSource()
+        data_source_ui.setupUi(DataSource)
+
+        DataSource.show()
+
+        def get_file_path():
+            global DATABASE_PATH
+            DATABASE_PATH = QtWidgets.QFileDialog.getOpenFileName()[0]
+
+            DataSource.close()
+
+        def get_data_form_google():
+            pass
+
+        data_source_ui.pushButton_chose_file.clicked.connect(get_file_path)
+        data_source_ui.pushButton_connect_google.clicked.connect(get_data_form_google)
+
+
     def close_all_windows():
         for window in FIGHT_AREA_WINDOWS:
             window[0].close()
@@ -38,6 +62,8 @@ def start_app():
 
     main_panel_ui.pushButton_add_fight_area.clicked.connect(add_fight_area)
     main_panel_ui.pushButton_close_all.clicked.connect(close_all_windows)
+    main_panel_ui.pushButton_add_fighters_list.clicked.connect(chose_data_source)
+
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
