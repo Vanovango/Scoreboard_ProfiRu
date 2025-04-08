@@ -1,7 +1,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-from main_panel import Ui_MainWindow
-from manege_fight_area_window import Ui_FightManageWindow
+from start_window import Ui_MainWindow
+from manage_panel import Ui_ManagePanel
 from data_sourse import Ui_DataSource
 
 import sys
@@ -21,16 +21,19 @@ def start_app():
 
     MainPanel.show()
 
+
     def add_fight_area():
         global NUMBER_OF_FIGHT_AREA
         NUMBER_OF_FIGHT_AREA += 1
 
         global FightManage
         FightManage = QtWidgets.QMainWindow()
-        fight_manage_ui = Ui_FightManageWindow()
+        fight_manage_ui = Ui_ManagePanel()
         fight_manage_ui.setupUi(FightManage)
 
-        FIGHT_AREA_WINDOWS.append((FightManage, fight_manage_ui))
+        fight_manage_ui.change_area_number(NUMBER_OF_FIGHT_AREA)
+
+        FIGHT_AREA_WINDOWS.append({'window':FightManage, 'ui':fight_manage_ui, 'index':NUMBER_OF_FIGHT_AREA})
 
         FIGHT_AREA_WINDOWS[-1][0].show()
 
@@ -58,6 +61,9 @@ def start_app():
     def close_all_windows():
         for window in FIGHT_AREA_WINDOWS:
             window[0].close()
+
+        global NUMBER_OF_FIGHT_AREA
+        NUMBER_OF_FIGHT_AREA = 0
 
 
     main_panel_ui.pushButton_add_fight_area.clicked.connect(add_fight_area)
