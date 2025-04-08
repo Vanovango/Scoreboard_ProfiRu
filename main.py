@@ -1,6 +1,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-from start_window import Ui_MainWindow
+from start_window import Ui_StartWindow
 from manage_panel import Ui_ManagePanel
 from data_sourse import Ui_DataSource
 
@@ -12,16 +12,16 @@ FIGHT_AREA_WINDOWS = []
 DATABASE_PATH = ''
 MATCHES_END_NUMBER = 0
 
-
+################################################# start app ############################################################
 def start_app():
-    global MainPanel
-    MainPanel = QtWidgets.QMainWindow()
-    main_panel_ui = Ui_MainWindow()
-    main_panel_ui.setupUi(MainPanel)
+    global StartWindow
+    StartWindow = QtWidgets.QMainWindow()
+    start_window_ui = Ui_StartWindow()
+    start_window_ui.setupUi(StartWindow)
 
-    MainPanel.show()
+    StartWindow.show()
 
-
+############################################# add manage panel #########################################################
     def add_fight_area():
         global NUMBER_OF_FIGHT_AREA
         NUMBER_OF_FIGHT_AREA += 1
@@ -35,8 +35,9 @@ def start_app():
 
         FIGHT_AREA_WINDOWS.append({'window':FightManage, 'ui':fight_manage_ui, 'index':NUMBER_OF_FIGHT_AREA})
 
-        FIGHT_AREA_WINDOWS[-1][0].show()
+        FIGHT_AREA_WINDOWS[-1]['window'].show()
 
+##################################### open chose data source window ####################################################
     def chose_data_source():
         global DataSource
         DataSource = QtWidgets.QMainWindow()
@@ -54,28 +55,30 @@ def start_app():
         def get_data_form_google():
             pass
 
+        ################################ data source window buttons ####################################################
         data_source_ui.pushButton_chose_file.clicked.connect(get_file_path)
         data_source_ui.pushButton_connect_google.clicked.connect(get_data_form_google)
 
+############################################ show fighters info ########################################################
     def show_fighters():
         print(DATABASE_PATH)
         # import os
         #
         # os.system(f"start EXCEL.EXE {DATABASE_PATH}")
 
-
+############################################## close all panels ########################################################
     def close_all_windows():
         for window in FIGHT_AREA_WINDOWS:
-            window[0].close()
+            window['window'].close()
 
         global NUMBER_OF_FIGHT_AREA
         NUMBER_OF_FIGHT_AREA = 0
 
-
-    main_panel_ui.pushButton_add_fight_area.clicked.connect(add_fight_area)
-    main_panel_ui.pushButton_close_all.clicked.connect(close_all_windows)
-    main_panel_ui.pushButton_add_fighters_list.clicked.connect(chose_data_source)
-    main_panel_ui.pushButton_show_fighters_list.clicked.connect(show_fighters)
+    ################################### start window buttons ##################################################
+    start_window_ui.pushButton_add_fight_area.clicked.connect(add_fight_area)
+    start_window_ui.pushButton_close_all.clicked.connect(close_all_windows)
+    start_window_ui.pushButton_add_fighters_list.clicked.connect(chose_data_source)
+    start_window_ui.pushButton_show_fighters_list.clicked.connect(show_fighters)
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)

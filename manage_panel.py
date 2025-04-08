@@ -1,4 +1,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import (QMainWindow, QPushButton, QLabel, QVBoxLayout, QWidget,
+                             QTimeEdit, QDialog, QMessageBox, QHBoxLayout)
+from PyQt5.QtCore import QTimer, QTime, Qt
 
 
 class Ui_ManagePanel(object):
@@ -487,16 +490,16 @@ class Ui_ManagePanel(object):
         self.label_4.setAlignment(QtCore.Qt.AlignBottom|QtCore.Qt.AlignHCenter)
         self.label_4.setObjectName("label_4")
         self.verticalLayout_12.addWidget(self.label_4)
-        self.label_sum_score_left_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_sum_score_left_2.setStyleSheet("color: #fff;\n"
+        self.label_sum_score_right = QtWidgets.QLabel(self.centralwidget)
+        self.label_sum_score_right.setStyleSheet("color: #fff;\n"
 "background: #000000;\n"
 "font: 57 30pt \"Dubai Medium\";\n"
 "\n"
 "border-radius: 15px;\n"
 "")
-        self.label_sum_score_left_2.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_sum_score_left_2.setObjectName("label_sum_score_left_2")
-        self.verticalLayout_12.addWidget(self.label_sum_score_left_2)
+        self.label_sum_score_right.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_sum_score_right.setObjectName("label_sum_score_left_2")
+        self.verticalLayout_12.addWidget(self.label_sum_score_right)
         self.horizontalLayout_3.addLayout(self.verticalLayout_12)
         self.verticalLayout_4 = QtWidgets.QVBoxLayout()
         self.verticalLayout_4.setObjectName("verticalLayout_4")
@@ -536,15 +539,15 @@ class Ui_ManagePanel(object):
         self.horizontalLayout_5.addWidget(self.label_team_right)
         self.verticalLayout_5 = QtWidgets.QVBoxLayout()
         self.verticalLayout_5.setObjectName("verticalLayout_5")
-        self.label_weight_category_right_2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_weight_category_right = QtWidgets.QLabel(self.centralwidget)
         font = QtGui.QFont()
         font.setFamily("Dubai Medium")
         font.setPointSize(12)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(7)
-        self.label_weight_category_right_2.setFont(font)
-        self.label_weight_category_right_2.setStyleSheet("background-color: rgb(221, 221, 221);\n"
+        self.label_weight_category_right.setFont(font)
+        self.label_weight_category_right.setStyleSheet("background-color: rgb(221, 221, 221);\n"
 "font: 57 12pt \"Dubai Medium\";\n"
 "\n"
 "border-radius: 10px;\n"
@@ -552,9 +555,9 @@ class Ui_ManagePanel(object):
 "\n"
 "padding-right: 10px;\n"
 "padding-left: 10px;")
-        self.label_weight_category_right_2.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_weight_category_right_2.setObjectName("label_weight_category_right_2")
-        self.verticalLayout_5.addWidget(self.label_weight_category_right_2)
+        self.label_weight_category_right.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_weight_category_right.setObjectName("label_weight_category_right_2")
+        self.verticalLayout_5.addWidget(self.label_weight_category_right)
         self.label_date_of_birth_right = QtWidgets.QLabel(self.centralwidget)
         font = QtGui.QFont()
         font.setFamily("Dubai Medium")
@@ -703,19 +706,19 @@ class Ui_ManagePanel(object):
 "")
         self.pushButton_SHIDO_right.setObjectName("pushButton_SHIDO_right")
         self.formLayout_4.setWidget(4, QtWidgets.QFormLayout.FieldRole, self.pushButton_SHIDO_right)
-        self.label_IPPON_score_left_4 = QtWidgets.QLabel(self.centralwidget)
+        self.label_IPPON_score_right = QtWidgets.QLabel(self.centralwidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.label_IPPON_score_left_4.sizePolicy().hasHeightForWidth())
-        self.label_IPPON_score_left_4.setSizePolicy(sizePolicy)
-        self.label_IPPON_score_left_4.setStyleSheet("\n"
+        sizePolicy.setHeightForWidth(self.label_IPPON_score_right.sizePolicy().hasHeightForWidth())
+        self.label_IPPON_score_right.setSizePolicy(sizePolicy)
+        self.label_IPPON_score_right.setStyleSheet("\n"
 "\n"
 "font: 63 20pt \"Sitka Heading Semibold\";")
-        self.label_IPPON_score_left_4.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
-        self.label_IPPON_score_left_4.setIndent(0)
-        self.label_IPPON_score_left_4.setObjectName("label_IPPON_score_left_4")
-        self.formLayout_4.setWidget(1, QtWidgets.QFormLayout.LabelRole, self.label_IPPON_score_left_4)
+        self.label_IPPON_score_right.setAlignment(QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter)
+        self.label_IPPON_score_right.setIndent(0)
+        self.label_IPPON_score_right.setObjectName("label_IPPON_score_left_4")
+        self.formLayout_4.setWidget(1, QtWidgets.QFormLayout.LabelRole, self.label_IPPON_score_right)
         self.label_VAZARI_score_right = QtWidgets.QLabel(self.centralwidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
@@ -756,18 +759,18 @@ class Ui_ManagePanel(object):
         self.label_YKO_score_right.setObjectName("label_YKO_score_right")
         self.formLayout_4.setWidget(4, QtWidgets.QFormLayout.LabelRole, self.label_YKO_score_right)
         self.verticalLayout_4.addLayout(self.formLayout_4)
-        self.label_9 = QtWidgets.QLabel(self.centralwidget)
+        self.label_hold = QtWidgets.QLabel(self.centralwidget)
         font = QtGui.QFont()
         font.setFamily("Sitka Heading Semibold")
         font.setPointSize(20)
-        self.label_9.setFont(font)
-        self.label_9.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_9.setObjectName("label_9")
-        self.verticalLayout_4.addWidget(self.label_9)
+        self.label_hold.setFont(font)
+        self.label_hold.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_hold.setObjectName("label_9")
+        self.verticalLayout_4.addWidget(self.label_hold)
         self.horizontalLayout_6 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_6.setObjectName("horizontalLayout_6")
-        self.pushButton_3 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_3.setStyleSheet("QPushButton {\n"
+        self.pushButton_start_time = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_start_time.setStyleSheet("QPushButton {\n"
 "    \n"
 "    \n"
 "    background-color: rgb(255, 255, 255);\n"
@@ -786,18 +789,18 @@ class Ui_ManagePanel(object):
 "}\n"
 "\n"
 "")
-        self.pushButton_3.setObjectName("pushButton_3")
-        self.horizontalLayout_6.addWidget(self.pushButton_3)
-        self.label_10 = QtWidgets.QLabel(self.centralwidget)
+        self.pushButton_start_time.setObjectName("pushButton_3")
+        self.horizontalLayout_6.addWidget(self.pushButton_start_time)
+        self.label_timer = QtWidgets.QLabel(self.centralwidget)
         font = QtGui.QFont()
         font.setFamily("Sitka Heading Semibold")
         font.setPointSize(20)
-        self.label_10.setFont(font)
-        self.label_10.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_10.setObjectName("label_10")
-        self.horizontalLayout_6.addWidget(self.label_10)
-        self.pushButton_4 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_4.setStyleSheet("QPushButton {\n"
+        self.label_timer.setFont(font)
+        self.label_timer.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_timer.setObjectName("label_10")
+        self.horizontalLayout_6.addWidget(self.label_timer)
+        self.pushButton_stop_time = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_stop_time.setStyleSheet("QPushButton {\n"
 "    \n"
 "    \n"
 "    background-color: rgb(255, 255, 255);\n"
@@ -815,8 +818,8 @@ class Ui_ManagePanel(object):
 "}\n"
 "\n"
 "")
-        self.pushButton_4.setObjectName("pushButton_4")
-        self.horizontalLayout_6.addWidget(self.pushButton_4)
+        self.pushButton_stop_time.setObjectName("pushButton_4")
+        self.horizontalLayout_6.addWidget(self.pushButton_stop_time)
         self.verticalLayout_4.addLayout(self.horizontalLayout_6)
         self.horizontalLayout_3.addLayout(self.verticalLayout_4)
         MainWindow.setCentralWidget(self.centralwidget)
@@ -824,7 +827,7 @@ class Ui_ManagePanel(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-        self.functions
+        self.functions()
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -833,7 +836,7 @@ class Ui_ManagePanel(object):
         self.label_weight_category_left.setText(_translate("MainWindow", "Весовая кат. - 22"))
         self.label_date_of_birth_left.setText(_translate("MainWindow", "19.02.2005"))
         self.label_team_left.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\">Школа</p><p align=\"center\">Одинцовская </p><p align=\"center\">СОШ 3</p></body></html>"))
-        self.pushButton_YKO_left.setText(_translate("MainWindow", "ЮКО "))
+        self.pushButton_YKO_left.setText(_translate("MainWindow", "ЮКО"))
         self.label_IPPON_score_left.setText(_translate("MainWindow", "0"))
         self.pushButton_IPPON_left.setText(_translate("MainWindow", "ИППОН"))
         self.label_VAZARI_score_left.setText(_translate("MainWindow", "0"))
@@ -853,33 +856,88 @@ class Ui_ManagePanel(object):
         self.pushButton_time_pause.setText(_translate("MainWindow", "Пауза"))
         self.pushButton_time_continue.setText(_translate("MainWindow", "Продолжить"))
         self.pushButton_time_start.setText(_translate("MainWindow", "Старт"))
-        self.pushButton_close_scoreboard.setText(_translate("MainWindow", "Закрыть\n"
-"табло"))
-        self.pushButton_open_scoreboard.setText(_translate("MainWindow", "Вывести\n"
-" табло"))
+        self.pushButton_close_scoreboard.setText(_translate("MainWindow", "Закрыть\nтабло"))
+        self.pushButton_open_scoreboard.setText(_translate("MainWindow", "Вывести\nтабло"))
         self.label_4.setText(_translate("MainWindow", "Очки"))
-        self.label_sum_score_left_2.setText(_translate("MainWindow", "0"))
+        self.label_sum_score_right.setText(_translate("MainWindow", "0"))
         self.label_full_name_right.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:36pt; font-weight:600;\">Иванов</span></p><p><span style=\" font-size:26pt; font-weight:600;\">Иван Иванович</span></p></body></html>"))
         self.label_team_right.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\">Школа</p><p align=\"center\">Одинцовская </p><p align=\"center\">СОШ 3</p></body></html>"))
-        self.label_weight_category_right_2.setText(_translate("MainWindow", "Весовая кат. - 22"))
+        self.label_weight_category_right.setText(_translate("MainWindow", "Весовая кат. - 22"))
         self.label_date_of_birth_right.setText(_translate("MainWindow", "19.02.2005"))
-        self.pushButton_YKO_right.setText(_translate("MainWindow", "ЮКО "))
+        self.pushButton_YKO_right.setText(_translate("MainWindow", "ЮКО"))
         self.pushButton_IPPON_right.setText(_translate("MainWindow", "ИППОН"))
         self.pushButton_VAZARI_right.setText(_translate("MainWindow", "ВАЗАРИ"))
         self.pushButton_SHIDO_right.setText(_translate("MainWindow", "ШИДО"))
-        self.label_IPPON_score_left_4.setText(_translate("MainWindow", "0"))
+        self.label_IPPON_score_right.setText(_translate("MainWindow", "0"))
         self.label_VAZARI_score_right.setText(_translate("MainWindow", "0"))
         self.label_SHIDO_score_right.setText(_translate("MainWindow", "0"))
-        self.label_YKO_score_right.setText(_translate("MainWindow", "<html><head/><body><p>0</p></body></html>"))
-        self.label_9.setText(_translate("MainWindow", "УДЕРЖАНИЕ"))
-        self.pushButton_3.setText(_translate("MainWindow", "Старт"))
-        self.label_10.setText(_translate("MainWindow", "00:00"))
-        self.pushButton_4.setText(_translate("MainWindow", "Стоп"))
+        self.label_YKO_score_right.setText(_translate("MainWindow", "0"))
+        self.label_hold.setText(_translate("MainWindow", "УДЕРЖАНИЕ"))
+        self.pushButton_start_time.setText(_translate("MainWindow", "Старт"))
+        self.label_timer.setText(_translate("MainWindow", "00:00"))
+        self.pushButton_stop_time.setText(_translate("MainWindow", "Стоп"))
 
 
     def functions(self):
-            pass
+        self.pushButton_YKO_right.clicked.connect(lambda: self.plus_one(self.label_YKO_score_right))
+
+        self.pushButton_time_start.clicked.connect(self.start_timer)
 
 
     def change_area_number(self, number):
-            self.label_fight_area_number.setText(f"Ковер №{number}")
+        self.label_fight_area_number.setText(f"Ковер №{number}")
+
+    @staticmethod
+    def plus_one(name):
+        """
+        count YKO usages to right fighter
+        """
+        text = int(name.text()) + 1
+        name.setText(str(text))
+
+    def start_timer(self):
+            """
+            chose time limit and start timer
+            """
+
+            """Открывает диалоговое окно для выбора времени"""
+            dialog = QDialog()
+            dialog.setWindowTitle("Выберите время")
+
+            time_edit = QTimeEdit()
+            time_edit.setDisplayFormat("mm:ss")
+            time_edit.setTime(QTime(1, 0))  # Устанавливаем время по умолчанию 00:01:00
+
+            ok_button = QPushButton("OK")
+            ok_button.clicked.connect(lambda: start_countdown(time_edit.time(), dialog))
+
+            layout = QVBoxLayout()
+            layout.addWidget(time_edit)
+            layout.addWidget(ok_button)
+            dialog.setLayout(layout)
+
+            dialog.exec_()
+
+            def start_countdown(time, dialog):
+                    """Начинает обратный отсчет"""
+                    dialog.close()
+
+                    self.remaining_time = time
+                    self.update_timer_display()
+
+                    if not self.timer.isActive():
+                            self.timer.start(1000)  # Обновляем каждую секунду
+
+            def update_timer():
+                    """Обновляет оставшееся время"""
+                    if self.remaining_time == QTime(0, 0):
+                            self.timer.stop()
+                            QMessageBox.information(self, "Таймер", "Время вышло!")
+                            return
+
+                    self.remaining_time = self.remaining_time.addSecs(-1)
+                    self.update_timer_display()
+
+            def update_timer_display():
+                    """Обновляет текст QLabel"""
+                    self.timer_label.setText(self.remaining_time.toString("mm:ss"))

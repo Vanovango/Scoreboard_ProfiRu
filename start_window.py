@@ -3,7 +3,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_MainWindow(object):
+class Ui_StartWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(712, 544)
@@ -60,7 +60,7 @@ class Ui_MainWindow(object):
         self.pushButton_add_fighters_list.setText(_translate("MainWindow", "Добавить список участников"))
         self.pushButton_close_all.setText(_translate("MainWindow", "Закрыть все окна"))
         self.pushButton_show_fighters_list.setText(_translate("MainWindow", "Посмотреть информацию об участниках"))
-        self.label_title.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\">Табло </p><p align=\"center\">для проведения </p><p align=\"center\">соревновнований по Дздо</p></body></html>"))
+        self.label_title.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\">Табло </p><p align=\"center\">для проведения </p><p align=\"center\">соревнований по Дзюдо</p></body></html>"))
 
     def functions(self):
         pass
