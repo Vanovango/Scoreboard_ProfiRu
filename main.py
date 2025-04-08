@@ -54,6 +54,12 @@ def start_app():
         data_source_ui.pushButton_chose_file.clicked.connect(get_file_path)
         data_source_ui.pushButton_connect_google.clicked.connect(get_data_form_google)
 
+    def show_fighters():
+        print(DATABASE_PATH)
+        # import os
+        #
+        # os.system(f"start EXCEL.EXE {DATABASE_PATH}")
+
 
     def close_all_windows():
         for window in FIGHT_AREA_WINDOWS:
@@ -63,7 +69,7 @@ def start_app():
     main_panel_ui.pushButton_add_fight_area.clicked.connect(add_fight_area)
     main_panel_ui.pushButton_close_all.clicked.connect(close_all_windows)
     main_panel_ui.pushButton_add_fighters_list.clicked.connect(chose_data_source)
-
+    main_panel_ui.pushButton_show_fighters_list.clicked.connect(show_fighters)
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
