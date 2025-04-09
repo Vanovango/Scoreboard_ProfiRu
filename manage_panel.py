@@ -126,13 +126,13 @@ class Ui_ManagePanel(object):
 "")
         self.pushButton_YKO_left.setObjectName("pushButton_YKO_left")
         self.formLayout.setWidget(1, QtWidgets.QFormLayout.LabelRole, self.pushButton_YKO_left)
-        self.label_IPPON_score_left = QtWidgets.QLabel(self.centralwidget)
-        self.label_IPPON_score_left.setStyleSheet("\n"
+        self.label_YKO_score_left = QtWidgets.QLabel(self.centralwidget)
+        self.label_YKO_score_left.setStyleSheet("\n"
 "\n"
 "font: 63 20pt \"Sitka Heading Semibold\";")
-        self.label_IPPON_score_left.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
-        self.label_IPPON_score_left.setObjectName("label_IPPON_score_left")
-        self.formLayout.setWidget(1, QtWidgets.QFormLayout.FieldRole, self.label_IPPON_score_left)
+        self.label_YKO_score_left.setAlignment(QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter)
+        self.label_YKO_score_left.setObjectName("label_IPPON_score_left")
+        self.formLayout.setWidget(1, QtWidgets.QFormLayout.FieldRole, self.label_YKO_score_left)
         self.pushButton_IPPON_left = QtWidgets.QPushButton(self.centralwidget)
         font = QtGui.QFont()
         font.setFamily("Sitka Heading Semibold")
@@ -162,13 +162,13 @@ class Ui_ManagePanel(object):
 "")
         self.pushButton_IPPON_left.setObjectName("pushButton_IPPON_left")
         self.formLayout.setWidget(2, QtWidgets.QFormLayout.LabelRole, self.pushButton_IPPON_left)
-        self.label_VAZARI_score_left = QtWidgets.QLabel(self.centralwidget)
-        self.label_VAZARI_score_left.setStyleSheet("\n"
+        self.label_IPPON_score_left = QtWidgets.QLabel(self.centralwidget)
+        self.label_IPPON_score_left.setStyleSheet("\n"
 "\n"
 "font: 63 20pt \"Sitka Heading Semibold\";")
-        self.label_VAZARI_score_left.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
-        self.label_VAZARI_score_left.setObjectName("label_VAZARI_score_left")
-        self.formLayout.setWidget(2, QtWidgets.QFormLayout.FieldRole, self.label_VAZARI_score_left)
+        self.label_IPPON_score_left.setAlignment(QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter)
+        self.label_IPPON_score_left.setObjectName("label_VAZARI_score_left")
+        self.formLayout.setWidget(2, QtWidgets.QFormLayout.FieldRole, self.label_IPPON_score_left)
         self.pushButton_VAZARI_left = QtWidgets.QPushButton(self.centralwidget)
         font = QtGui.QFont()
         font.setFamily("Sitka Heading Semibold")
@@ -198,13 +198,13 @@ class Ui_ManagePanel(object):
 "")
         self.pushButton_VAZARI_left.setObjectName("pushButton_VAZARI_left")
         self.formLayout.setWidget(3, QtWidgets.QFormLayout.LabelRole, self.pushButton_VAZARI_left)
-        self.label_SHIDO_score_left = QtWidgets.QLabel(self.centralwidget)
-        self.label_SHIDO_score_left.setStyleSheet("\n"
+        self.label_VAZARI_score_left = QtWidgets.QLabel(self.centralwidget)
+        self.label_VAZARI_score_left.setStyleSheet("\n"
 "\n"
 "font: 63 20pt \"Sitka Heading Semibold\";")
-        self.label_SHIDO_score_left.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
-        self.label_SHIDO_score_left.setObjectName("label_SHIDO_score_left")
-        self.formLayout.setWidget(3, QtWidgets.QFormLayout.FieldRole, self.label_SHIDO_score_left)
+        self.label_VAZARI_score_left.setAlignment(QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter)
+        self.label_VAZARI_score_left.setObjectName("label_SHIDO_score_left")
+        self.formLayout.setWidget(3, QtWidgets.QFormLayout.FieldRole, self.label_VAZARI_score_left)
         self.pushButton_SHIDO_left = QtWidgets.QPushButton(self.centralwidget)
         font = QtGui.QFont()
         font.setFamily("Sitka Heading Semibold")
@@ -236,13 +236,13 @@ class Ui_ManagePanel(object):
 "")
         self.pushButton_SHIDO_left.setObjectName("pushButton_SHIDO_left")
         self.formLayout.setWidget(4, QtWidgets.QFormLayout.LabelRole, self.pushButton_SHIDO_left)
-        self.label_YKO_score_left = QtWidgets.QLabel(self.centralwidget)
-        self.label_YKO_score_left.setStyleSheet("\n"
+        self.label_SHIDO_score_left = QtWidgets.QLabel(self.centralwidget)
+        self.label_SHIDO_score_left.setStyleSheet("\n"
 "\n"
 "font: 63 20pt \"Sitka Heading Semibold\";")
-        self.label_YKO_score_left.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
-        self.label_YKO_score_left.setObjectName("label_YKO_score_left")
-        self.formLayout.setWidget(4, QtWidgets.QFormLayout.FieldRole, self.label_YKO_score_left)
+        self.label_SHIDO_score_left.setAlignment(QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter)
+        self.label_SHIDO_score_left.setObjectName("label_YKO_score_left")
+        self.formLayout.setWidget(4, QtWidgets.QFormLayout.FieldRole, self.label_SHIDO_score_left)
         self.verticalLayout_2.addLayout(self.formLayout)
         self.label_8 = QtWidgets.QLabel(self.centralwidget)
         font = QtGui.QFont()
@@ -254,8 +254,8 @@ class Ui_ManagePanel(object):
         self.verticalLayout_2.addWidget(self.label_8)
         self.horizontalLayout_4 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_4.setObjectName("horizontalLayout_4")
-        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setStyleSheet("QPushButton {\n"
+        self.pushButton_left_stopwatch_start = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_left_stopwatch_start.setStyleSheet("QPushButton {\n"
 "    \n"
 "    \n"
 "    background-color: rgb(255, 255, 255);\n"
@@ -274,18 +274,18 @@ class Ui_ManagePanel(object):
 "}\n"
 "\n"
 "")
-        self.pushButton.setObjectName("pushButton")
-        self.horizontalLayout_4.addWidget(self.pushButton)
-        self.label_7 = QtWidgets.QLabel(self.centralwidget)
+        self.pushButton_left_stopwatch_start.setObjectName("pushButton")
+        self.horizontalLayout_4.addWidget(self.pushButton_left_stopwatch_start)
+        self.label_stopwatch_time_left = QtWidgets.QLabel(self.centralwidget)
         font = QtGui.QFont()
         font.setFamily("Sitka Heading Semibold")
         font.setPointSize(20)
-        self.label_7.setFont(font)
-        self.label_7.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_7.setObjectName("label_7")
-        self.horizontalLayout_4.addWidget(self.label_7)
-        self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_2.setStyleSheet("QPushButton {\n"
+        self.label_stopwatch_time_left.setFont(font)
+        self.label_stopwatch_time_left.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_stopwatch_time_left.setObjectName("label_7")
+        self.horizontalLayout_4.addWidget(self.label_stopwatch_time_left)
+        self.pushButton_left_stopwatch_stop = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_left_stopwatch_stop.setStyleSheet("QPushButton {\n"
 "    \n"
 "    \n"
 "    background-color: rgb(255, 255, 255);\n"
@@ -303,8 +303,8 @@ class Ui_ManagePanel(object):
 "}\n"
 "\n"
 "")
-        self.pushButton_2.setObjectName("pushButton_2")
-        self.horizontalLayout_4.addWidget(self.pushButton_2)
+        self.pushButton_left_stopwatch_stop.setObjectName("pushButton_2")
+        self.horizontalLayout_4.addWidget(self.pushButton_left_stopwatch_stop)
         self.verticalLayout_2.addLayout(self.horizontalLayout_4)
         self.horizontalLayout_3.addLayout(self.verticalLayout_2)
         self.verticalLayout_11 = QtWidgets.QVBoxLayout()
@@ -706,6 +706,19 @@ class Ui_ManagePanel(object):
 "")
         self.pushButton_SHIDO_right.setObjectName("pushButton_SHIDO_right")
         self.formLayout_4.setWidget(4, QtWidgets.QFormLayout.FieldRole, self.pushButton_SHIDO_right)
+        self.label_YKO_score_right = QtWidgets.QLabel(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.label_YKO_score_right.sizePolicy().hasHeightForWidth())
+        self.label_YKO_score_right.setSizePolicy(sizePolicy)
+        self.label_YKO_score_right.setStyleSheet("\n"
+"\n"
+"font: 63 20pt \"Sitka Heading Semibold\";")
+        self.label_YKO_score_right.setAlignment(QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter)
+        self.label_YKO_score_right.setIndent(0)
+        self.label_YKO_score_right.setObjectName("label_IPPON_score_left_4")
+        self.formLayout_4.setWidget(1, QtWidgets.QFormLayout.LabelRole, self.label_YKO_score_right)
         self.label_IPPON_score_right = QtWidgets.QLabel(self.centralwidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
@@ -717,8 +730,8 @@ class Ui_ManagePanel(object):
 "font: 63 20pt \"Sitka Heading Semibold\";")
         self.label_IPPON_score_right.setAlignment(QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter)
         self.label_IPPON_score_right.setIndent(0)
-        self.label_IPPON_score_right.setObjectName("label_IPPON_score_left_4")
-        self.formLayout_4.setWidget(1, QtWidgets.QFormLayout.LabelRole, self.label_IPPON_score_right)
+        self.label_IPPON_score_right.setObjectName("label_VAZARI_score_right")
+        self.formLayout_4.setWidget(2, QtWidgets.QFormLayout.LabelRole, self.label_IPPON_score_right)
         self.label_VAZARI_score_right = QtWidgets.QLabel(self.centralwidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
@@ -728,10 +741,10 @@ class Ui_ManagePanel(object):
         self.label_VAZARI_score_right.setStyleSheet("\n"
 "\n"
 "font: 63 20pt \"Sitka Heading Semibold\";")
-        self.label_VAZARI_score_right.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.label_VAZARI_score_right.setAlignment(QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter)
         self.label_VAZARI_score_right.setIndent(0)
-        self.label_VAZARI_score_right.setObjectName("label_VAZARI_score_right")
-        self.formLayout_4.setWidget(2, QtWidgets.QFormLayout.LabelRole, self.label_VAZARI_score_right)
+        self.label_VAZARI_score_right.setObjectName("label_SHIDO_score_right")
+        self.formLayout_4.setWidget(3, QtWidgets.QFormLayout.LabelRole, self.label_VAZARI_score_right)
         self.label_SHIDO_score_right = QtWidgets.QLabel(self.centralwidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
@@ -741,23 +754,10 @@ class Ui_ManagePanel(object):
         self.label_SHIDO_score_right.setStyleSheet("\n"
 "\n"
 "font: 63 20pt \"Sitka Heading Semibold\";")
-        self.label_SHIDO_score_right.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.label_SHIDO_score_right.setAlignment(QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter)
         self.label_SHIDO_score_right.setIndent(0)
-        self.label_SHIDO_score_right.setObjectName("label_SHIDO_score_right")
-        self.formLayout_4.setWidget(3, QtWidgets.QFormLayout.LabelRole, self.label_SHIDO_score_right)
-        self.label_YKO_score_right = QtWidgets.QLabel(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.label_YKO_score_right.sizePolicy().hasHeightForWidth())
-        self.label_YKO_score_right.setSizePolicy(sizePolicy)
-        self.label_YKO_score_right.setStyleSheet("\n"
-"\n"
-"font: 63 20pt \"Sitka Heading Semibold\";")
-        self.label_YKO_score_right.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
-        self.label_YKO_score_right.setIndent(0)
-        self.label_YKO_score_right.setObjectName("label_YKO_score_right")
-        self.formLayout_4.setWidget(4, QtWidgets.QFormLayout.LabelRole, self.label_YKO_score_right)
+        self.label_SHIDO_score_right.setObjectName("label_YKO_score_right")
+        self.formLayout_4.setWidget(4, QtWidgets.QFormLayout.LabelRole, self.label_SHIDO_score_right)
         self.verticalLayout_4.addLayout(self.formLayout_4)
         self.label_hold = QtWidgets.QLabel(self.centralwidget)
         font = QtGui.QFont()
@@ -769,8 +769,8 @@ class Ui_ManagePanel(object):
         self.verticalLayout_4.addWidget(self.label_hold)
         self.horizontalLayout_6 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_6.setObjectName("horizontalLayout_6")
-        self.pushButton_start_time = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_start_time.setStyleSheet("QPushButton {\n"
+        self.pushButton_right_stopwatch_start = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_right_stopwatch_start.setStyleSheet("QPushButton {\n"
 "    \n"
 "    \n"
 "    background-color: rgb(255, 255, 255);\n"
@@ -789,18 +789,18 @@ class Ui_ManagePanel(object):
 "}\n"
 "\n"
 "")
-        self.pushButton_start_time.setObjectName("pushButton_3")
-        self.horizontalLayout_6.addWidget(self.pushButton_start_time)
-        self.label_timer = QtWidgets.QLabel(self.centralwidget)
+        self.pushButton_right_stopwatch_start.setObjectName("pushButton_3")
+        self.horizontalLayout_6.addWidget(self.pushButton_right_stopwatch_start)
+        self.label_stopwatch_time_right = QtWidgets.QLabel(self.centralwidget)
         font = QtGui.QFont()
         font.setFamily("Sitka Heading Semibold")
         font.setPointSize(20)
-        self.label_timer.setFont(font)
-        self.label_timer.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_timer.setObjectName("label_10")
-        self.horizontalLayout_6.addWidget(self.label_timer)
-        self.pushButton_stop_time = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_stop_time.setStyleSheet("QPushButton {\n"
+        self.label_stopwatch_time_right.setFont(font)
+        self.label_stopwatch_time_right.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_stopwatch_time_right.setObjectName("label_10")
+        self.horizontalLayout_6.addWidget(self.label_stopwatch_time_right)
+        self.pushButton_right_stopwatch_stop = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_right_stopwatch_stop.setStyleSheet("QPushButton {\n"
 "    \n"
 "    \n"
 "    background-color: rgb(255, 255, 255);\n"
@@ -818,8 +818,8 @@ class Ui_ManagePanel(object):
 "}\n"
 "\n"
 "")
-        self.pushButton_stop_time.setObjectName("pushButton_4")
-        self.horizontalLayout_6.addWidget(self.pushButton_stop_time)
+        self.pushButton_right_stopwatch_stop.setObjectName("pushButton_4")
+        self.horizontalLayout_6.addWidget(self.pushButton_right_stopwatch_stop)
         self.verticalLayout_4.addLayout(self.horizontalLayout_6)
         self.horizontalLayout_3.addLayout(self.verticalLayout_4)
         MainWindow.setCentralWidget(self.centralwidget)
@@ -827,7 +827,27 @@ class Ui_ManagePanel(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+        ############## my code part ##################
         self.functions()
+
+        self.timer = QTimer()
+        self.timer.timeout.connect(self.update_timer)
+        self.timer_time = QTime(0, 0)
+
+        self.stopwatch_left = QTimer()
+        self.stopwatch_left.timeout.connect(self.update_stopwatch_left)
+        self.stopwatch_left.start(100)
+        self.stopwatch_left_time = 0
+        self.stopwatch_left_flag = False
+        self.stopwatch_left_counter = 0
+
+        self.stopwatch_right = QTimer()
+        self.stopwatch_right.timeout.connect(self.update_stopwatch_right)
+        self.stopwatch_right.start(100)
+        self.stopwatch_right_time = 0
+        self.stopwatch_right_flag = False
+        self.stopwatch_right_counter = 0
+
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -837,25 +857,25 @@ class Ui_ManagePanel(object):
         self.label_date_of_birth_left.setText(_translate("MainWindow", "19.02.2005"))
         self.label_team_left.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\">Школа</p><p align=\"center\">Одинцовская </p><p align=\"center\">СОШ 3</p></body></html>"))
         self.pushButton_YKO_left.setText(_translate("MainWindow", "ЮКО"))
-        self.label_IPPON_score_left.setText(_translate("MainWindow", "0"))
+        self.label_YKO_score_left.setText(_translate("MainWindow", "0"))
         self.pushButton_IPPON_left.setText(_translate("MainWindow", "ИППОН"))
-        self.label_VAZARI_score_left.setText(_translate("MainWindow", "0"))
+        self.label_IPPON_score_left.setText(_translate("MainWindow", "0"))
         self.pushButton_VAZARI_left.setText(_translate("MainWindow", "ВАЗАРИ"))
-        self.label_SHIDO_score_left.setText(_translate("MainWindow", "0"))
+        self.label_VAZARI_score_left.setText(_translate("MainWindow", "0"))
         self.pushButton_SHIDO_left.setText(_translate("MainWindow", "ШИДО"))
-        self.label_YKO_score_left.setText(_translate("MainWindow", "<html><head/><body><p>0</p></body></html>"))
+        self.label_SHIDO_score_left.setText(_translate("MainWindow", "0"))
         self.label_8.setText(_translate("MainWindow", "УДЕРЖАНИЕ"))
-        self.pushButton.setText(_translate("MainWindow", "Старт"))
-        self.label_7.setText(_translate("MainWindow", "00:00"))
-        self.pushButton_2.setText(_translate("MainWindow", "Стоп"))
+        self.pushButton_left_stopwatch_start.setText(_translate("MainWindow", "Старт"))
+        self.label_stopwatch_time_left.setText(_translate("MainWindow", "0.0"))
+        self.pushButton_left_stopwatch_stop.setText(_translate("MainWindow", "Стоп"))
         self.label_2.setText(_translate("MainWindow", "Очки"))
         self.label_sum_score_left.setText(_translate("MainWindow", "0"))
         self.label_fight_area_number.setText(_translate("MainWindow", "Ковер №1"))
         self.label_title_time.setText(_translate("MainWindow", "Время"))
         self.label_time_counter.setText(_translate("MainWindow", "00:00"))
         self.pushButton_time_pause.setText(_translate("MainWindow", "Пауза"))
-        self.pushButton_time_continue.setText(_translate("MainWindow", "Продолжить"))
-        self.pushButton_time_start.setText(_translate("MainWindow", "Старт"))
+        self.pushButton_time_continue.setText(_translate("MainWindow", "Старт"))
+        self.pushButton_time_start.setText(_translate("MainWindow", "Выбрать время"))
         self.pushButton_close_scoreboard.setText(_translate("MainWindow", "Закрыть\nтабло"))
         self.pushButton_open_scoreboard.setText(_translate("MainWindow", "Вывести\nтабло"))
         self.label_4.setText(_translate("MainWindow", "Очки"))
@@ -868,76 +888,181 @@ class Ui_ManagePanel(object):
         self.pushButton_IPPON_right.setText(_translate("MainWindow", "ИППОН"))
         self.pushButton_VAZARI_right.setText(_translate("MainWindow", "ВАЗАРИ"))
         self.pushButton_SHIDO_right.setText(_translate("MainWindow", "ШИДО"))
+        self.label_YKO_score_right.setText(_translate("MainWindow", "0"))
         self.label_IPPON_score_right.setText(_translate("MainWindow", "0"))
         self.label_VAZARI_score_right.setText(_translate("MainWindow", "0"))
         self.label_SHIDO_score_right.setText(_translate("MainWindow", "0"))
-        self.label_YKO_score_right.setText(_translate("MainWindow", "0"))
         self.label_hold.setText(_translate("MainWindow", "УДЕРЖАНИЕ"))
-        self.pushButton_start_time.setText(_translate("MainWindow", "Старт"))
-        self.label_timer.setText(_translate("MainWindow", "00:00"))
-        self.pushButton_stop_time.setText(_translate("MainWindow", "Стоп"))
+        self.pushButton_right_stopwatch_start.setText(_translate("MainWindow", "Старт"))
+        self.label_stopwatch_time_right.setText(_translate("MainWindow", "0.0"))
+        self.pushButton_right_stopwatch_stop.setText(_translate("MainWindow", "Стоп"))
 
 
     def functions(self):
-        self.pushButton_YKO_right.clicked.connect(lambda: self.plus_one(self.label_YKO_score_right))
+        ##################################### plus punish buttons #####################################
+        self.pushButton_SHIDO_right.clicked.connect(lambda: self.plus_one_score(self.label_SHIDO_score_right, ''))
+        self.pushButton_SHIDO_left.clicked.connect(lambda: self.plus_one_score(self.label_SHIDO_score_left, ''))
 
-        self.pushButton_time_start.clicked.connect(self.start_timer)
+        ##################################### plus score buttons #####################################
+
+        ########### left side #########
+        self.pushButton_VAZARI_left.clicked.connect(lambda: self.plus_one_score(self.label_VAZARI_score_left, 'left'))
+        self.pushButton_IPPON_left.clicked.connect(lambda: self.plus_one_score(self.label_IPPON_score_left, 'left'))
+        self.pushButton_YKO_left.clicked.connect(lambda: self.plus_one_score(self.label_YKO_score_left, 'left'))
+
+        ########### right side #########
+        self.pushButton_VAZARI_right.clicked.connect(lambda: self.plus_one_score(self.label_VAZARI_score_right, 'right'))
+        self.pushButton_YKO_right.clicked.connect(lambda: self.plus_one_score(self.label_YKO_score_right, 'right'))
+        self.pushButton_IPPON_right.clicked.connect(lambda: self.plus_one_score(self.label_IPPON_score_right, 'right'))
+
+
+        ##################################### time buttons #####################################
+        ###### timer ########
+        self.pushButton_time_start.clicked.connect(self.set_time)
+        self.pushButton_time_continue.clicked.connect(lambda: self.timer.start())
+        self.pushButton_time_pause.clicked.connect(lambda: self.timer.stop())
+
+        ###### stopwatch left ########
+        self.pushButton_left_stopwatch_start.clicked.connect(self.start_stopwatch_left)
+        self.pushButton_left_stopwatch_stop.clicked.connect(self.stop_stopwatch_left)
+
+        ###### stopwatch right ########
+        self.pushButton_right_stopwatch_start.clicked.connect(self.start_stopwatch_right)
+        self.pushButton_right_stopwatch_stop.clicked.connect(self.stop_stopwatch_right)
 
 
     def change_area_number(self, number):
         self.label_fight_area_number.setText(f"Ковер №{number}")
 
-    @staticmethod
-    def plus_one(name):
+
+    def plus_one_score(self, name, side):
         """
         count YKO usages to right fighter
         """
         text = int(name.text()) + 1
         name.setText(str(text))
 
-    def start_timer(self):
-            """
-            chose time limit and start timer
-            """
+        self.update_score(side)
 
-            """Открывает диалоговое окно для выбора времени"""
-            dialog = QDialog()
-            dialog.setWindowTitle("Выберите время")
+##################### score counter ############################
+    def update_score(self, side):
+            if side == 'left':
+                    score = (int(self.label_YKO_score_left.text()) +
+                             10 * int(self.label_VAZARI_score_left.text()) +
+                             100 * int(self.label_IPPON_score_left.text()))
+                    self.label_sum_score_left.setText(str(score))
 
-            time_edit = QTimeEdit()
-            time_edit.setDisplayFormat("mm:ss")
-            time_edit.setTime(QTime(1, 0))  # Устанавливаем время по умолчанию 00:01:00
+            elif side == 'right':
+                    score = (int(self.label_YKO_score_right.text()) +
+                             10 * int(self.label_VAZARI_score_right.text()) +
+                             100 * int(self.label_IPPON_score_right.text()))
+                    self.label_sum_score_right.setText(str(score))
 
-            ok_button = QPushButton("OK")
-            ok_button.clicked.connect(lambda: start_countdown(time_edit.time(), dialog))
+############## timer setup functions #########################
+###### timer ########
+    def set_time(self):
+        ChoseTime = QDialog()
+        ChoseTime.setWindowTitle("Выберите время")
+        ChoseTime.resize(260, 231)
 
-            layout = QVBoxLayout()
-            layout.addWidget(time_edit)
-            layout.addWidget(ok_button)
-            dialog.setLayout(layout)
+        time_edit = QTimeEdit()
+        time_edit.setDisplayFormat("mm:ss")
+        time_edit.setGeometry(QtCore.QRect(40, 90, 181, 51))
+        font = QtGui.QFont()
+        font.setPointSize(30)
+        time_edit.setFont(font)
+        time_edit.setAlignment(QtCore.Qt.AlignCenter)
 
-            dialog.exec_()
+        pushButton_ok_time = QPushButton("OK")
+        pushButton_ok_time.setGeometry(QtCore.QRect(60, 170, 141, 41))
+        font = QtGui.QFont()
+        font.setPointSize(20)
+        pushButton_ok_time.setFont(font)
 
-            def start_countdown(time, dialog):
-                    """Начинает обратный отсчет"""
-                    dialog.close()
+        layout = QVBoxLayout()
+        layout.addWidget(time_edit)
+        layout.addWidget(pushButton_ok_time)
+        ChoseTime.setLayout(layout)
 
-                    self.remaining_time = time
-                    self.update_timer_display()
+        pushButton_ok_time.clicked.connect(lambda: self.start_timer(ChoseTime, time_edit.time()))
 
-                    if not self.timer.isActive():
-                            self.timer.start(1000)  # Обновляем каждую секунду
+        ChoseTime.exec_()
 
-            def update_timer():
-                    """Обновляет оставшееся время"""
-                    if self.remaining_time == QTime(0, 0):
-                            self.timer.stop()
-                            QMessageBox.information(self, "Таймер", "Время вышло!")
-                            return
+    def start_timer(self, window, time):
+            window.close()
 
-                    self.remaining_time = self.remaining_time.addSecs(-1)
-                    self.update_timer_display()
+            self.timer_time = time
+            self.update_timer_display()
 
-            def update_timer_display():
-                    """Обновляет текст QLabel"""
-                    self.timer_label.setText(self.remaining_time.toString("mm:ss"))
+            if not self.timer.isActive():
+                    self.timer.start(1000)  # Обновляем каждую секунду
+
+            self.timer.stop()
+
+    def update_timer(self):
+            if self.timer_time == QTime(0, 0):
+                    self.timer.stop()
+                    return
+
+            self.timer_time = self.timer_time.addSecs(-1)
+            self.update_timer_display()
+
+    def update_timer_display(self):
+            self.label_time_counter.setText(self.timer_time.toString("mm:ss"))
+
+###### stopwatch left ########
+    def update_stopwatch_left(self):
+            if self.stopwatch_left_flag:
+                self.stopwatch_left_time += 1
+
+            left_time = str(self.stopwatch_left_time / 10)
+
+            self.label_stopwatch_time_left.setText(left_time)
+
+    def start_stopwatch_left(self):
+        self.stopwatch_left_flag = True
+        self.pushButton_left_stopwatch_stop.setText('Стоп')
+        self.stopwatch_left_counter = 0
+
+    def stop_stopwatch_left(self):
+
+        if self.stopwatch_left_counter == 0:
+                self.stopwatch_left_flag = False
+                self.pushButton_left_stopwatch_stop.setText('Сброс')
+                self.stopwatch_left_counter += 1
+
+        elif self.stopwatch_left_counter == 1:
+                self.stopwatch_left_flag = False
+                self.pushButton_left_stopwatch_stop.setText('Стоп')
+                self.stopwatch_left_time = 0
+                self.label_stopwatch_time_left.setText(str(self.stopwatch_left_time))
+                self.stopwatch_left_counter = 0
+
+###### stopwatch right ########
+    def update_stopwatch_right(self):
+            if self.stopwatch_right_flag:
+                self.stopwatch_right_time += 1
+
+            right_time = str(self.stopwatch_right_time / 10)
+
+            self.label_stopwatch_time_right.setText(right_time)
+
+    def start_stopwatch_right(self):
+            self.stopwatch_right_flag = True
+            self.pushButton_right_stopwatch_stop.setText('Стоп')
+            self.stopwatch_right_counter = 0
+
+    def stop_stopwatch_right(self):
+            if self.stopwatch_right_counter == 0:
+                    self.stopwatch_right_flag = False
+                    self.pushButton_right_stopwatch_stop.setText('Сброс')
+                    self.stopwatch_right_counter += 1
+
+            elif self.stopwatch_right_counter == 1:
+                    self.stopwatch_right_flag = False
+                    self.pushButton_right_stopwatch_stop.setText('Стоп')
+                    self.stopwatch_right_time = 0
+                    self.label_stopwatch_time_right.setText(str(self.stopwatch_right_time))
+                    self.stopwatch_right_counter = 0
+
+
