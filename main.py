@@ -9,6 +9,7 @@ import sys
 
 NUMBER_OF_FIGHT_AREA = 0
 FIGHT_AREA_WINDOWS = []
+FIGHTERS_LIST = {}
 DATABASE_PATH = ''
 MATCHES_END_NUMBER = 0
 
@@ -50,6 +51,8 @@ def start_app():
             global DATABASE_PATH
             DATABASE_PATH = QtWidgets.QFileDialog.getOpenFileName()[0]
 
+            load_list_from_exel()
+
             DataSource.close()
 
         def get_data_form_google():
@@ -79,6 +82,18 @@ def start_app():
     start_window_ui.pushButton_close_all.clicked.connect(close_all_windows)
     start_window_ui.pushButton_add_fighters_list.clicked.connect(chose_data_source)
     start_window_ui.pushButton_show_fighters_list.clicked.connect(show_fighters)
+
+
+####################################### load data about fighters from exel ############################################
+def load_list_from_exel():
+    import pandas as pd
+    global FIGHTERS_LIST
+
+    df = pd.read_excel(DATABASE_PATH)
+
+    FIGHTERS_LIST = df.to_dict(orient='list')
+
+    print(FIGHTERS_LIST)
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)

@@ -1,4 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtGui import QFont
 from PyQt5.QtWidgets import (QMainWindow, QPushButton, QLabel, QVBoxLayout, QWidget,
                              QTimeEdit, QDialog, QMessageBox, QHBoxLayout)
 from PyQt5.QtCore import QTimer, QTime, Qt
@@ -133,42 +134,6 @@ class Ui_ManagePanel(object):
         self.label_YKO_score_left.setAlignment(QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter)
         self.label_YKO_score_left.setObjectName("label_IPPON_score_left")
         self.formLayout.setWidget(1, QtWidgets.QFormLayout.FieldRole, self.label_YKO_score_left)
-        self.pushButton_IPPON_left = QtWidgets.QPushButton(self.centralwidget)
-        font = QtGui.QFont()
-        font.setFamily("Sitka Heading Semibold")
-        font.setPointSize(16)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(7)
-        self.pushButton_IPPON_left.setFont(font)
-        self.pushButton_IPPON_left.setStyleSheet("QPushButton {\n"
-"    \n"
-"    \n"
-"    background-color: rgb(255, 255, 255);\n"
-"    \n"
-"    font: 63 16pt \"Sitka Heading Semibold\";\n"
-"\n"
-"    border-radius: 10px;\n"
-"    \n"
-"    border-color: rgb(0, 0, 0);\n"
-"\n"
-"    width: 200px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: rgb(217, 217, 217);\n"
-"}\n"
-"\n"
-"")
-        self.pushButton_IPPON_left.setObjectName("pushButton_IPPON_left")
-        self.formLayout.setWidget(2, QtWidgets.QFormLayout.LabelRole, self.pushButton_IPPON_left)
-        self.label_IPPON_score_left = QtWidgets.QLabel(self.centralwidget)
-        self.label_IPPON_score_left.setStyleSheet("\n"
-"\n"
-"font: 63 20pt \"Sitka Heading Semibold\";")
-        self.label_IPPON_score_left.setAlignment(QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter)
-        self.label_IPPON_score_left.setObjectName("label_VAZARI_score_left")
-        self.formLayout.setWidget(2, QtWidgets.QFormLayout.FieldRole, self.label_IPPON_score_left)
         self.pushButton_VAZARI_left = QtWidgets.QPushButton(self.centralwidget)
         font = QtGui.QFont()
         font.setFamily("Sitka Heading Semibold")
@@ -196,15 +161,51 @@ class Ui_ManagePanel(object):
 "}\n"
 "\n"
 "")
-        self.pushButton_VAZARI_left.setObjectName("pushButton_VAZARI_left")
-        self.formLayout.setWidget(3, QtWidgets.QFormLayout.LabelRole, self.pushButton_VAZARI_left)
+        self.pushButton_VAZARI_left.setObjectName("pushButton_IPPON_left")
+        self.formLayout.setWidget(2, QtWidgets.QFormLayout.LabelRole, self.pushButton_VAZARI_left)
         self.label_VAZARI_score_left = QtWidgets.QLabel(self.centralwidget)
         self.label_VAZARI_score_left.setStyleSheet("\n"
 "\n"
 "font: 63 20pt \"Sitka Heading Semibold\";")
         self.label_VAZARI_score_left.setAlignment(QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter)
-        self.label_VAZARI_score_left.setObjectName("label_SHIDO_score_left")
-        self.formLayout.setWidget(3, QtWidgets.QFormLayout.FieldRole, self.label_VAZARI_score_left)
+        self.label_VAZARI_score_left.setObjectName("label_VAZARI_score_left")
+        self.formLayout.setWidget(2, QtWidgets.QFormLayout.FieldRole, self.label_VAZARI_score_left)
+        self.pushButton_IPPON_left = QtWidgets.QPushButton(self.centralwidget)
+        font = QtGui.QFont()
+        font.setFamily("Sitka Heading Semibold")
+        font.setPointSize(16)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(7)
+        self.pushButton_IPPON_left.setFont(font)
+        self.pushButton_IPPON_left.setStyleSheet("QPushButton {\n"
+"    \n"
+"    \n"
+"    background-color: rgb(255, 255, 255);\n"
+"    \n"
+"    font: 63 16pt \"Sitka Heading Semibold\";\n"
+"\n"
+"    border-radius: 10px;\n"
+"    \n"
+"    border-color: rgb(0, 0, 0);\n"
+"\n"
+"    width: 200px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(217, 217, 217);\n"
+"}\n"
+"\n"
+"")
+        self.pushButton_IPPON_left.setObjectName("pushButton_VAZARI_left")
+        self.formLayout.setWidget(3, QtWidgets.QFormLayout.LabelRole, self.pushButton_IPPON_left)
+        self.label_IPPON_score_left = QtWidgets.QLabel(self.centralwidget)
+        self.label_IPPON_score_left.setStyleSheet("\n"
+"\n"
+"font: 63 20pt \"Sitka Heading Semibold\";")
+        self.label_IPPON_score_left.setAlignment(QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter)
+        self.label_IPPON_score_left.setObjectName("label_SHIDO_score_left")
+        self.formLayout.setWidget(3, QtWidgets.QFormLayout.FieldRole, self.label_IPPON_score_left)
         self.pushButton_SHIDO_left = QtWidgets.QPushButton(self.centralwidget)
         font = QtGui.QFont()
         font.setFamily("Sitka Heading Semibold")
@@ -617,35 +618,6 @@ class Ui_ManagePanel(object):
 "")
         self.pushButton_YKO_right.setObjectName("pushButton_YKO_right")
         self.formLayout_4.setWidget(1, QtWidgets.QFormLayout.FieldRole, self.pushButton_YKO_right)
-        self.pushButton_IPPON_right = QtWidgets.QPushButton(self.centralwidget)
-        font = QtGui.QFont()
-        font.setFamily("Sitka Heading Semibold")
-        font.setPointSize(16)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(7)
-        self.pushButton_IPPON_right.setFont(font)
-        self.pushButton_IPPON_right.setStyleSheet("QPushButton {\n"
-"    \n"
-"    \n"
-"    background-color: rgb(255, 255, 255);\n"
-"    \n"
-"    font: 63 16pt \"Sitka Heading Semibold\";\n"
-"\n"
-"    border-radius: 10px;\n"
-"    \n"
-"    border-color: rgb(0, 0, 0);\n"
-"\n"
-"    width: 200px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: rgb(217, 217, 217);\n"
-"}\n"
-"\n"
-"")
-        self.pushButton_IPPON_right.setObjectName("pushButton_IPPON_right")
-        self.formLayout_4.setWidget(2, QtWidgets.QFormLayout.FieldRole, self.pushButton_IPPON_right)
         self.pushButton_VAZARI_right = QtWidgets.QPushButton(self.centralwidget)
         font = QtGui.QFont()
         font.setFamily("Sitka Heading Semibold")
@@ -673,8 +645,37 @@ class Ui_ManagePanel(object):
 "}\n"
 "\n"
 "")
-        self.pushButton_VAZARI_right.setObjectName("pushButton_VAZARI_right")
-        self.formLayout_4.setWidget(3, QtWidgets.QFormLayout.FieldRole, self.pushButton_VAZARI_right)
+        self.pushButton_VAZARI_right.setObjectName("pushButton_IPPON_right")
+        self.formLayout_4.setWidget(2, QtWidgets.QFormLayout.FieldRole, self.pushButton_VAZARI_right)
+        self.pushButton_IPPON_right = QtWidgets.QPushButton(self.centralwidget)
+        font = QtGui.QFont()
+        font.setFamily("Sitka Heading Semibold")
+        font.setPointSize(16)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(7)
+        self.pushButton_IPPON_right.setFont(font)
+        self.pushButton_IPPON_right.setStyleSheet("QPushButton {\n"
+"    \n"
+"    \n"
+"    background-color: rgb(255, 255, 255);\n"
+"    \n"
+"    font: 63 16pt \"Sitka Heading Semibold\";\n"
+"\n"
+"    border-radius: 10px;\n"
+"    \n"
+"    border-color: rgb(0, 0, 0);\n"
+"\n"
+"    width: 200px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(217, 217, 217);\n"
+"}\n"
+"\n"
+"")
+        self.pushButton_IPPON_right.setObjectName("pushButton_VAZARI_right")
+        self.formLayout_4.setWidget(3, QtWidgets.QFormLayout.FieldRole, self.pushButton_IPPON_right)
         self.pushButton_SHIDO_right = QtWidgets.QPushButton(self.centralwidget)
         font = QtGui.QFont()
         font.setFamily("Sitka Heading Semibold")
@@ -719,19 +720,6 @@ class Ui_ManagePanel(object):
         self.label_YKO_score_right.setIndent(0)
         self.label_YKO_score_right.setObjectName("label_IPPON_score_left_4")
         self.formLayout_4.setWidget(1, QtWidgets.QFormLayout.LabelRole, self.label_YKO_score_right)
-        self.label_IPPON_score_right = QtWidgets.QLabel(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.label_IPPON_score_right.sizePolicy().hasHeightForWidth())
-        self.label_IPPON_score_right.setSizePolicy(sizePolicy)
-        self.label_IPPON_score_right.setStyleSheet("\n"
-"\n"
-"font: 63 20pt \"Sitka Heading Semibold\";")
-        self.label_IPPON_score_right.setAlignment(QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter)
-        self.label_IPPON_score_right.setIndent(0)
-        self.label_IPPON_score_right.setObjectName("label_VAZARI_score_right")
-        self.formLayout_4.setWidget(2, QtWidgets.QFormLayout.LabelRole, self.label_IPPON_score_right)
         self.label_VAZARI_score_right = QtWidgets.QLabel(self.centralwidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
@@ -743,8 +731,21 @@ class Ui_ManagePanel(object):
 "font: 63 20pt \"Sitka Heading Semibold\";")
         self.label_VAZARI_score_right.setAlignment(QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter)
         self.label_VAZARI_score_right.setIndent(0)
-        self.label_VAZARI_score_right.setObjectName("label_SHIDO_score_right")
-        self.formLayout_4.setWidget(3, QtWidgets.QFormLayout.LabelRole, self.label_VAZARI_score_right)
+        self.label_VAZARI_score_right.setObjectName("label_VAZARI_score_right")
+        self.formLayout_4.setWidget(2, QtWidgets.QFormLayout.LabelRole, self.label_VAZARI_score_right)
+        self.label_IPPON_score_right = QtWidgets.QLabel(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.label_IPPON_score_right.sizePolicy().hasHeightForWidth())
+        self.label_IPPON_score_right.setSizePolicy(sizePolicy)
+        self.label_IPPON_score_right.setStyleSheet("\n"
+"\n"
+"font: 63 20pt \"Sitka Heading Semibold\";")
+        self.label_IPPON_score_right.setAlignment(QtCore.Qt.AlignRight | QtCore.Qt.AlignTrailing | QtCore.Qt.AlignVCenter)
+        self.label_IPPON_score_right.setIndent(0)
+        self.label_IPPON_score_right.setObjectName("label_SHIDO_score_right")
+        self.formLayout_4.setWidget(3, QtWidgets.QFormLayout.LabelRole, self.label_IPPON_score_right)
         self.label_SHIDO_score_right = QtWidgets.QLabel(self.centralwidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
@@ -858,10 +859,10 @@ class Ui_ManagePanel(object):
         self.label_team_left.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\">Школа</p><p align=\"center\">Одинцовская </p><p align=\"center\">СОШ 3</p></body></html>"))
         self.pushButton_YKO_left.setText(_translate("MainWindow", "ЮКО"))
         self.label_YKO_score_left.setText(_translate("MainWindow", "0"))
-        self.pushButton_IPPON_left.setText(_translate("MainWindow", "ИППОН"))
-        self.label_IPPON_score_left.setText(_translate("MainWindow", "0"))
         self.pushButton_VAZARI_left.setText(_translate("MainWindow", "ВАЗАРИ"))
         self.label_VAZARI_score_left.setText(_translate("MainWindow", "0"))
+        self.pushButton_IPPON_left.setText(_translate("MainWindow", "ИППОН"))
+        self.label_IPPON_score_left.setText(_translate("MainWindow", "0"))
         self.pushButton_SHIDO_left.setText(_translate("MainWindow", "ШИДО"))
         self.label_SHIDO_score_left.setText(_translate("MainWindow", "0"))
         self.label_8.setText(_translate("MainWindow", "УДЕРЖАНИЕ"))
@@ -885,12 +886,12 @@ class Ui_ManagePanel(object):
         self.label_weight_category_right.setText(_translate("MainWindow", "Весовая кат. - 22"))
         self.label_date_of_birth_right.setText(_translate("MainWindow", "19.02.2005"))
         self.pushButton_YKO_right.setText(_translate("MainWindow", "ЮКО"))
-        self.pushButton_IPPON_right.setText(_translate("MainWindow", "ИППОН"))
         self.pushButton_VAZARI_right.setText(_translate("MainWindow", "ВАЗАРИ"))
+        self.pushButton_IPPON_right.setText(_translate("MainWindow", "ИППОН"))
         self.pushButton_SHIDO_right.setText(_translate("MainWindow", "ШИДО"))
         self.label_YKO_score_right.setText(_translate("MainWindow", "0"))
-        self.label_IPPON_score_right.setText(_translate("MainWindow", "0"))
         self.label_VAZARI_score_right.setText(_translate("MainWindow", "0"))
+        self.label_IPPON_score_right.setText(_translate("MainWindow", "0"))
         self.label_SHIDO_score_right.setText(_translate("MainWindow", "0"))
         self.label_hold.setText(_translate("MainWindow", "УДЕРЖАНИЕ"))
         self.pushButton_right_stopwatch_start.setText(_translate("MainWindow", "Старт"))
@@ -906,14 +907,14 @@ class Ui_ManagePanel(object):
         ##################################### plus score buttons #####################################
 
         ########### left side #########
-        self.pushButton_VAZARI_left.clicked.connect(lambda: self.plus_one_score(self.label_VAZARI_score_left, 'left'))
         self.pushButton_IPPON_left.clicked.connect(lambda: self.plus_one_score(self.label_IPPON_score_left, 'left'))
+        self.pushButton_VAZARI_left.clicked.connect(lambda: self.plus_one_score(self.label_VAZARI_score_left, 'left'))
         self.pushButton_YKO_left.clicked.connect(lambda: self.plus_one_score(self.label_YKO_score_left, 'left'))
 
         ########### right side #########
-        self.pushButton_VAZARI_right.clicked.connect(lambda: self.plus_one_score(self.label_VAZARI_score_right, 'right'))
-        self.pushButton_YKO_right.clicked.connect(lambda: self.plus_one_score(self.label_YKO_score_right, 'right'))
         self.pushButton_IPPON_right.clicked.connect(lambda: self.plus_one_score(self.label_IPPON_score_right, 'right'))
+        self.pushButton_YKO_right.clicked.connect(lambda: self.plus_one_score(self.label_YKO_score_right, 'right'))
+        self.pushButton_VAZARI_right.clicked.connect(lambda: self.plus_one_score(self.label_VAZARI_score_right, 'right'))
 
 
         ##################################### time buttons #####################################
@@ -942,7 +943,25 @@ class Ui_ManagePanel(object):
         text = int(name.text()) + 1
         name.setText(str(text))
 
+        self.is_baned()
         self.update_score(side)
+
+##################### is baned #################################
+    def is_baned(self):
+
+            font = QtGui.QFont()
+            font.setFamily("Sitka Heading Semibold")
+            font.setPointSize(18)
+
+            if int(self.label_SHIDO_score_right.text()) > 2:
+                    self.label_pass_right.setText('ХАНСОКУ МАКЕ')
+                    self.label_pass_right.setFont(font)
+                    self.label_pass_right.setAlignment(QtCore.Qt.AlignCenter)
+
+            if int(self.label_SHIDO_score_left.text()) > 2:
+                    self.label_pass_left.setText('ХАНСОКУ МАКЕ')
+                    self.label_pass_left.setFont(font)
+                    self.label_pass_left.setAlignment(QtCore.Qt.AlignCenter)
 
 ##################### score counter ############################
     def update_score(self, side):
