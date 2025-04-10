@@ -4,6 +4,8 @@ from PyQt5.QtWidgets import (QMainWindow, QPushButton, QLabel, QVBoxLayout, QWid
                              QTimeEdit, QDialog, QMessageBox, QHBoxLayout)
 from PyQt5.QtCore import QTimer, QTime, Qt
 
+from scoreborde_user import Ui_Scoreboard
+
 
 class Ui_ManagePanel(object):
     def setupUi(self, MainWindow):
@@ -850,6 +852,8 @@ class Ui_ManagePanel(object):
         self.stopwatch_right_counter = 0
 
 
+        self.scoreboard_ui = None
+
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
@@ -932,19 +936,19 @@ class Ui_ManagePanel(object):
         self.pushButton_right_stopwatch_stop.clicked.connect(self.stop_stopwatch_right)
 
 
+
     def change_area_number(self, number):
         self.label_fight_area_number.setText(f"Ковер №{number}")
 
 
     def plus_one_score(self, name, side):
-        """
-        count YKO usages to right fighter
-        """
         text = int(name.text()) + 1
         name.setText(str(text))
 
         self.is_baned()
         self.update_score(side)
+
+        self.update_scoreboard_info()
 
 ##################### is baned #################################
     def is_baned(self):
@@ -1084,4 +1088,13 @@ class Ui_ManagePanel(object):
                     self.label_stopwatch_time_right.setText(str(self.stopwatch_right_time))
                     self.stopwatch_right_counter = 0
 
+
+########################## save link to scoreboard ###################################
+    def save_scoreboard_link(self, link):
+            self.scoreboard_ui = link['ui']
+
+
+    def update_scoreboard_info(self):
+            if self.scoreboard_ui is not None:
+                self.scoreboard_ui.label_timer.setText('WORK!')
 

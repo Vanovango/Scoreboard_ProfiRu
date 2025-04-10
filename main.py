@@ -3,12 +3,14 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from start_window import Ui_StartWindow
 from manage_panel import Ui_ManagePanel
 from data_sourse import Ui_DataSource
+from scoreborde_user import Ui_Scoreboard
 
 import sys
 
 
 NUMBER_OF_FIGHT_AREA = 0
 FIGHT_AREA_WINDOWS = []
+SCOREBOARD_WINDOWS = []
 FIGHTERS_LIST = {}
 DATABASE_PATH = ''
 MATCHES_END_NUMBER = 0
@@ -34,9 +36,45 @@ def start_app():
 
         fight_manage_ui.change_area_number(NUMBER_OF_FIGHT_AREA)
 
-        FIGHT_AREA_WINDOWS.append({'window':FightManage, 'ui':fight_manage_ui, 'index':NUMBER_OF_FIGHT_AREA})
+        ########################## open and close scoreboard ############################
+        fight_manage_ui.pushButton_open_scoreboard.clicked.connect(
+            lambda checked, index=NUMBER_OF_FIGHT_AREA: open_scoreboard(index)
+        )
+        fight_manage_ui.pushButton_close_scoreboard.clicked.connect(
+            lambda checked, index=NUMBER_OF_FIGHT_AREA: close_scoreboard(index)
+        )
+        #################################################################################
 
+        FIGHT_AREA_WINDOWS.append({'window':FightManage, 'ui':fight_manage_ui, 'index':NUMBER_OF_FIGHT_AREA})
         FIGHT_AREA_WINDOWS[-1]['window'].show()
+
+
+        def open_scoreboard(index):
+            ScoreboardWindow = QtWidgets.QMainWindow()
+            ui_scoreboard = Ui_Scoreboard()
+            ui_scoreboard.setupUi(ScoreboardWindow)
+
+            ui_scoreboard.change_area_number(index)
+            SCOREBOARD_WINDOWS.append({'window':ScoreboardWindow, 'ui':ui_scoreboard, 'index':index})
+
+            for scoreboard in SCOREBOARD_WINDOWS:
+                if scoreboard['index'] == index:
+                    scoreboard['window'].show()
+
+
+            for scoreboard in SCOREBOARD_WINDOWS:
+                if scoreboard['index'] == index:
+
+                    for manage_panel in FIGHT_AREA_WINDOWS:
+                        if manage_panel['index'] == index:
+                            manage_panel['ui'].save_scoreboard_link(scoreboard)
+
+        def close_scoreboard(index):
+            for scoreboard in SCOREBOARD_WINDOWS:
+                if scoreboard['index'] == index:
+                    scoreboard['window'].close()
+                    del scoreboard
+
 
 ##################################### open chose data source window ####################################################
     def chose_data_source():
@@ -65,17 +103,22 @@ def start_app():
 ############################################ show fighters info ########################################################
     def show_fighters():
         print(DATABASE_PATH)
-        # import os
-        #
-        # os.system(f"start EXCEL.EXE {DATABASE_PATH}")
+
 
 ############################################## close all panels ########################################################
     def close_all_windows():
+        global NUMBER_OF_FIGHT_AREA
+
         for window in FIGHT_AREA_WINDOWS:
             window['window'].close()
 
-        global NUMBER_OF_FIGHT_AREA
+        for window in SCOREBOARD_WINDOWS:
+            window['window'].close()
+
+
         NUMBER_OF_FIGHT_AREA = 0
+        FIGHT_AREA_WINDOWS.clear()
+        SCOREBOARD_WINDOWS.clear()
 
     ################################### start window buttons ##################################################
     start_window_ui.pushButton_add_fight_area.clicked.connect(add_fight_area)
