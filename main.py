@@ -34,7 +34,7 @@ def start_app():
         fight_manage_ui = Ui_ManagePanel()
         fight_manage_ui.setupUi(FightManage)
 
-        fight_manage_ui.change_area_number(NUMBER_OF_FIGHT_AREA)
+        fight_manage_ui.open_manage_panel(NUMBER_OF_FIGHT_AREA, FIGHTERS_LIST)
 
         ########################## open and close scoreboard ############################
         fight_manage_ui.pushButton_open_scoreboard.clicked.connect(

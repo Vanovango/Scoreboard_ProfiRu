@@ -18,20 +18,19 @@ class Ui_ManagePanel(object):
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout()
         self.verticalLayout_2.setObjectName("verticalLayout_2")
-        self.label_full_name_left = QtWidgets.QLabel(self.centralwidget)
+        self.combobox_full_name_left = QtWidgets.QComboBox(self.centralwidget)
         font = QtGui.QFont()
         font.setFamily("Dubai Medium")
-        font.setPointSize(30)
+        font.setPointSize(20)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(7)
-        self.label_full_name_left.setFont(font)
-        self.label_full_name_left.setStyleSheet("\n"
-"    font: 57 30pt \"Dubai Medium\";\n"
+        self.combobox_full_name_left.setFont(font)
+        self.combobox_full_name_left.setStyleSheet("\n"
+"    font: 57 20pt \"Dubai Medium\";\n"
 "")
-        self.label_full_name_left.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
-        self.label_full_name_left.setObjectName("label_full_name_left")
-        self.verticalLayout_2.addWidget(self.label_full_name_left)
+        self.combobox_full_name_left.setObjectName("label_full_name_left")
+        self.verticalLayout_2.addWidget(self.combobox_full_name_left)
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.verticalLayout_3 = QtWidgets.QVBoxLayout()
@@ -506,20 +505,19 @@ class Ui_ManagePanel(object):
         self.horizontalLayout_3.addLayout(self.verticalLayout_12)
         self.verticalLayout_4 = QtWidgets.QVBoxLayout()
         self.verticalLayout_4.setObjectName("verticalLayout_4")
-        self.label_full_name_right = QtWidgets.QLabel(self.centralwidget)
+        self.combobox_full_name_right = QtWidgets.QComboBox(self.centralwidget)
         font = QtGui.QFont()
         font.setFamily("Dubai Medium")
-        font.setPointSize(30)
+        font.setPointSize(20)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(7)
-        self.label_full_name_right.setFont(font)
-        self.label_full_name_right.setStyleSheet("\n"
-"    font: 57 30pt \"Dubai Medium\";\n"
+        self.combobox_full_name_right.setFont(font)
+        self.combobox_full_name_right.setStyleSheet("\n"
+"    font: 57 20pt \"Dubai Medium\";\n"
 "")
-        self.label_full_name_right.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
-        self.label_full_name_right.setObjectName("label_full_name_right")
-        self.verticalLayout_4.addWidget(self.label_full_name_right)
+        self.combobox_full_name_right.setObjectName("label_full_name_right")
+        self.verticalLayout_4.addWidget(self.combobox_full_name_right)
         self.horizontalLayout_5 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_5.setObjectName("horizontalLayout_5")
         self.label_team_right = QtWidgets.QLabel(self.centralwidget)
@@ -851,13 +849,12 @@ class Ui_ManagePanel(object):
         self.stopwatch_right_flag = False
         self.stopwatch_right_counter = 0
 
-
+        self.fighters_list = {}
         self.scoreboard_ui = None
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.label_full_name_left.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:36pt; font-weight:600;\">Иванов</span></p><p><span style=\" font-size:26pt; font-weight:600;\">Иван Иванович</span></p></body></html>"))
         self.label_weight_category_left.setText(_translate("MainWindow", "Весовая кат. - 22"))
         self.label_date_of_birth_left.setText(_translate("MainWindow", "19.02.2005"))
         self.label_team_left.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\">Школа</p><p align=\"center\">Одинцовская </p><p align=\"center\">СОШ 3</p></body></html>"))
@@ -885,7 +882,6 @@ class Ui_ManagePanel(object):
         self.pushButton_open_scoreboard.setText(_translate("MainWindow", "Вывести\nтабло"))
         self.label_4.setText(_translate("MainWindow", "Очки"))
         self.label_sum_score_right.setText(_translate("MainWindow", "0"))
-        self.label_full_name_right.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:36pt; font-weight:600;\">Иванов</span></p><p><span style=\" font-size:26pt; font-weight:600;\">Иван Иванович</span></p></body></html>"))
         self.label_team_right.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\">Школа</p><p align=\"center\">Одинцовская </p><p align=\"center\">СОШ 3</p></body></html>"))
         self.label_weight_category_right.setText(_translate("MainWindow", "Весовая кат. - 22"))
         self.label_date_of_birth_right.setText(_translate("MainWindow", "19.02.2005"))
@@ -935,11 +931,19 @@ class Ui_ManagePanel(object):
         self.pushButton_right_stopwatch_start.clicked.connect(self.start_stopwatch_right)
         self.pushButton_right_stopwatch_stop.clicked.connect(self.stop_stopwatch_right)
 
+        ############ change fighter info ################
+        self.combobox_full_name_left.currentTextChanged.connect(lambda: self.update_fighter_info('left'))
+        self.combobox_full_name_right.currentTextChanged.connect(lambda: self.update_fighter_info('right'))
 
 
-    def change_area_number(self, number):
+
+    def open_manage_panel(self, number, fighters_list):
         self.label_fight_area_number.setText(f"Ковер №{number}")
 
+        if fighters_list:
+                self.fighters_list = fighters_list
+                self.combobox_full_name_left.addItems(self.fighters_list['Спортсмен'])
+                self.combobox_full_name_right.addItems(self.fighters_list['Спортсмен'])
 
     def plus_one_score(self, name, side):
         text = int(name.text()) + 1
@@ -948,7 +952,7 @@ class Ui_ManagePanel(object):
         self.is_baned()
         self.update_score(side)
 
-        self.update_scoreboard_info()
+        self.update_scoreboard()
 
 ##################### is baned #################################
     def is_baned(self):
@@ -967,6 +971,8 @@ class Ui_ManagePanel(object):
                     self.label_pass_left.setFont(font)
                     self.label_pass_left.setAlignment(QtCore.Qt.AlignCenter)
 
+            self.update_scoreboard()
+
 ##################### score counter ############################
     def update_score(self, side):
             if side == 'left':
@@ -980,6 +986,8 @@ class Ui_ManagePanel(object):
                              10 * int(self.label_VAZARI_score_right.text()) +
                              100 * int(self.label_IPPON_score_right.text()))
                     self.label_sum_score_right.setText(str(score))
+
+            self.update_scoreboard()
 
 ############## timer setup functions #########################
 ###### timer ########
@@ -1011,6 +1019,8 @@ class Ui_ManagePanel(object):
 
         ChoseTime.exec_()
 
+        self.update_scoreboard()
+
     def start_timer(self, window, time):
             window.close()
 
@@ -1022,6 +1032,8 @@ class Ui_ManagePanel(object):
 
             self.timer.stop()
 
+            self.update_scoreboard()
+
     def update_timer(self):
             if self.timer_time == QTime(0, 0):
                     self.timer.stop()
@@ -1030,8 +1042,12 @@ class Ui_ManagePanel(object):
             self.timer_time = self.timer_time.addSecs(-1)
             self.update_timer_display()
 
+            self.update_scoreboard()
+
     def update_timer_display(self):
             self.label_time_counter.setText(self.timer_time.toString("mm:ss"))
+
+            self.update_scoreboard()
 
 ###### stopwatch left ########
     def update_stopwatch_left(self):
@@ -1041,6 +1057,8 @@ class Ui_ManagePanel(object):
             left_time = str(self.stopwatch_left_time / 10)
 
             self.label_stopwatch_time_left.setText(left_time)
+
+            self.update_scoreboard()
 
     def start_stopwatch_left(self):
         self.stopwatch_left_flag = True
@@ -1061,6 +1079,8 @@ class Ui_ManagePanel(object):
                 self.label_stopwatch_time_left.setText(str(self.stopwatch_left_time))
                 self.stopwatch_left_counter = 0
 
+        self.update_scoreboard()
+
 ###### stopwatch right ########
     def update_stopwatch_right(self):
             if self.stopwatch_right_flag:
@@ -1069,6 +1089,8 @@ class Ui_ManagePanel(object):
             right_time = str(self.stopwatch_right_time / 10)
 
             self.label_stopwatch_time_right.setText(right_time)
+
+            self.update_scoreboard()
 
     def start_stopwatch_right(self):
             self.stopwatch_right_flag = True
@@ -1088,13 +1110,74 @@ class Ui_ManagePanel(object):
                     self.label_stopwatch_time_right.setText(str(self.stopwatch_right_time))
                     self.stopwatch_right_counter = 0
 
+            self.update_scoreboard()
+
 
 ########################## save link to scoreboard ###################################
     def save_scoreboard_link(self, link):
             self.scoreboard_ui = link['ui']
 
+####################### change fighter info ################################
+    def update_fighter_info(self, side):
+            if side == 'left':
+                    index = self.fighters_list['Спортсмен'].index(self.combobox_full_name_left.currentText())
 
-    def update_scoreboard_info(self):
+                    self.label_date_of_birth_left.setText(f"Весовая кат. - {self.fighters_list['Вес кат'][index]}")
+                    self.label_team_left.setText(f"Школа\n{self.fighters_list['Команда'][index]}")
+                    self.label_weight_category_left.setText(str(self.fighters_list['Год рождения'][index]).split()[0])
+
+            elif side == 'right':
+                    index = self.fighters_list['Спортсмен'].index(self.combobox_full_name_right.currentText())
+
+                    self.label_date_of_birth_right.setText(f"Весовая кат. - {self.fighters_list['Вес кат'][index]}")
+                    self.label_team_right.setText(f"Школа\n{self.fighters_list['Команда'][index]}")
+                    self.label_weight_category_right.setText(str(self.fighters_list['Год рождения'][index]).split()[0])
+
+
+    def update_scoreboard(self):
             if self.scoreboard_ui is not None:
-                self.scoreboard_ui.label_timer.setText('WORK!')
+                    ########### main timer ###############
+                    self.scoreboard_ui.label_timer.setText(self.label_time_counter.text())
+
+                    ############ hold stopwatch ##################
+                    self.scoreboard_ui.label_hold_left.setText(f'УДЕРЖАНИЕ {self.label_stopwatch_time_left.text()}')
+                    self.scoreboard_ui.label_hold_right.setText(f'{self.label_stopwatch_time_right.text()} УДЕРЖАНИЕ')
+
+                    ############## name ####################
+                    self.scoreboard_ui.label_name_left.setText(self.combobox_full_name_left.currentText())
+                    self.scoreboard_ui.label_name_right.setText(self.combobox_full_name_right.currentText())
+
+                    ############### fighter info ##################
+                    self.scoreboard_ui.label_weight_category_left.setText(self.label_weight_category_left.text())
+                    self.scoreboard_ui.label_date_left.setText(self.label_date_of_birth_left.text())
+                    self.scoreboard_ui.label_school_left.setText(self.label_team_left.text())
+
+                    self.scoreboard_ui.label_weight_category_right.setText(self.label_weight_category_right.text())
+                    self.scoreboard_ui.label_date_right.setText(self.label_date_of_birth_right.text())
+                    self.scoreboard_ui.label_school_right.setText(self.label_team_right.text())
+
+                    ###################### win or ban #####################
+                    self.scoreboard_ui.label_win_or_ban_left.setText(self.label_pass_left.text())
+                    self.scoreboard_ui.label_win_or_ban_right.setText(self.label_pass_right.text())
+
+                    ################# punish or reward ##################
+                    self.scoreboard_ui.label_YKO_score_left.setText(self.label_YKO_score_left.text())
+                    self.scoreboard_ui.label_VAZARI_score_left.setText(self.label_VAZARI_score_left.text())
+                    self.scoreboard_ui.label_IPPON_score_left.setText(self.label_IPPON_score_left.text())
+                    self.scoreboard_ui.label_SHIDO_score_left.setText(self.label_SHIDO_score_left.text())
+
+                    self.scoreboard_ui.label_YKO_score_right.setText(self.label_YKO_score_right.text())
+                    self.scoreboard_ui.label_VAZARI_score_right.setText(self.label_VAZARI_score_right.text())
+                    self.scoreboard_ui.label_IPPON_score_right.setText(self.label_IPPON_score_right.text())
+                    self.scoreboard_ui.label_SHIDO_score_right.setText(self.label_SHIDO_score_right.text())
+
+                    ################## total score ####################
+                    self.scoreboard_ui.label_total_score_left.setText(self.label_sum_score_left.text())
+                    self.scoreboard_ui.label_total_score_right.setText(self.label_sum_score_right.text())
+
+
+
+
+
+
 

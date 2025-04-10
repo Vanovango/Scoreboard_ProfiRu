@@ -18,7 +18,7 @@ class Ui_Scoreboard(object):
 
         self.font_name = QtGui.QFont()
         self.font_name.setFamily("Arial")
-        self.font_name.setPointSize(40)
+        self.font_name.setPointSize(25)
 
         self.font_fighter_info = QtGui.QFont()
         self.font_fighter_info.setFamily("Arial")
@@ -441,21 +441,25 @@ class Ui_Scoreboard(object):
             window_size = (MainWindow.width(), MainWindow.height())
             new_size = int((window_size[0] + window_size[1]) / 200)
 
-            self.font_timer.setPointSize(new_size * 8) # 95
-            self.font_label_time.setPointSize(new_size * 4)   # 50
-            self.font_name.setPointSize(new_size * 3) # 40
-            self.font_fighter_info.setPointSize(new_size * 2) # 20
-            self.font_win_or_ban.setPointSize(new_size * 2)   # 25
-            self.font_punish_and_succsess.setPointSize(new_size * 2)  # 25
-            self.font_hold.setPointSize(new_size * 2) # 25
-            self.font_label_score.setPointSize(new_size * 3)  # 30
-            self.font_total_score.setPointSize(new_size * 4)  # 70
-            self.font_area_number.setPointSize(new_size * 2)  # 25
+            ################ upscale coefs ######################
+            self.font_timer.setPointSize(new_size * 7)                  # 95
+            self.font_label_time.setPointSize(new_size * 3)             # 50
+            self.font_name.setPointSize(new_size * 2)                   # 25
+            self.font_fighter_info.setPointSize(int(new_size * 1.5))    # 20
+            self.font_win_or_ban.setPointSize(new_size * 2)             # 25
+            self.font_punish_and_succsess.setPointSize(new_size * 2)    # 25
+            self.font_hold.setPointSize(new_size * 2)                   # 25
+            self.font_label_score.setPointSize(new_size * 3)            # 30
+            self.font_total_score.setPointSize(new_size * 4)            # 70
+            self.font_area_number.setPointSize(new_size * 2)            # 25
+            ##################################################
 
 
+            ################### name #########################
             self.label_name_left.setFont(self.font_name)
             self.label_name_right.setFont(self.font_name)
 
+            ####################### fighter info ####################
             self.label_weight_category_left.setFont(self.font_fighter_info)
             self.label_weight_category_right.setFont(self.font_fighter_info)
             self.label_date_left.setFont(self.font_fighter_info)
@@ -463,9 +467,12 @@ class Ui_Scoreboard(object):
             self.label_school_left.setFont(self.font_fighter_info)
             self.label_school_right.setFont(self.font_fighter_info)
 
+            ###################### win or  ban label ####################3
             self.label_win_or_ban_left.setFont(self.font_win_or_ban)
             self.label_win_or_ban_right.setFont(self.font_win_or_ban)
 
+
+            ##################### punish and reward ####################
             self.label_YKO_left.setFont(self.font_punish_and_succsess)
             self.label_YKO_score_left.setFont(self.font_punish_and_succsess)
             self.label_VAZARI_left.setFont(self.font_punish_and_succsess)
@@ -474,6 +481,7 @@ class Ui_Scoreboard(object):
             self.label_VAZARI_score_left.setFont(self.font_punish_and_succsess)
             self.label_IPPON_score_left.setFont(self.font_punish_and_succsess)
             self.label_SHIDO_score_left.setFont(self.font_punish_and_succsess)
+
             self.label_VAZARI_right.setFont(self.font_punish_and_succsess)
             self.label_SHIDO_right.setFont(self.font_punish_and_succsess)
             self.label_IPPON_right.setFont(self.font_punish_and_succsess)
@@ -483,18 +491,24 @@ class Ui_Scoreboard(object):
             self.label_YKO_right.setFont(self.font_punish_and_succsess)
             self.label_SHIDO_score_right.setFont(self.font_punish_and_succsess)
 
+            ############## hold label #####################
             self.label_hold_left.setFont(self.font_hold)
             self.label_hold_right.setFont(self.font_hold)
 
+            ################## score title ##########################
             self.label_score_title_left.setFont(self.font_label_score)
             self.label_score_title_right.setFont(self.font_label_score)
 
+            ################## total score ##########################
             self.label_total_score_left.setFont(self.font_total_score)
             self.label_total_score_right.setFont(self.font_total_score)
 
+            ################## timer counter ######################
             self.label_timer.setFont(self.font_timer)
 
+            ################## title timer label ######################3
             self.label_title_time.setFont(self.font_label_time)
 
+            #################### area number ############################
             self.pushButton_area_number.setFont(self.font_area_number)
 
