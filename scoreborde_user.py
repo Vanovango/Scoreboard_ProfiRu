@@ -389,7 +389,7 @@ class Ui_Scoreboard(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Табло"))
         self.label_name_left.setText(_translate("MainWindow", "<html><head/><body><p>Иванов</p><p>Иван Иванович</p></body></html>"))
         self.label_weight_category_left.setText(_translate("MainWindow", "Весовая кат. - 22"))
         self.label_date_left.setText(_translate("MainWindow", "19.02.2005"))

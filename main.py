@@ -1,4 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtGui import QIcon
 
 from start_window import Ui_StartWindow
 from manage_panel import Ui_ManagePanel
@@ -8,17 +9,24 @@ from scoreborde_user import Ui_Scoreboard
 import sys
 
 
-NUMBER_OF_FIGHT_AREA = 0
+NUMBER_OF_FIGHT_AREA = [0]
 FIGHT_AREA_WINDOWS = []
 SCOREBOARD_WINDOWS = []
 FIGHTERS_LIST = {}
 DATABASE_PATH = ''
 MATCHES_END_NUMBER = 0
 
+def set_area_number(areas_list):
+    for i in range(1, len(areas_list)):
+        if not areas_list[i] - areas_list[i - 1] == 1:
+            return areas_list[i - 1] + 1
+    return max(areas_list) + 1
+
 ################################################# start app ############################################################
 def start_app():
     global StartWindow
     StartWindow = QtWidgets.QMainWindow()
+    StartWindow.setWindowIcon(QIcon("images/judo-main.png"))
     start_window_ui = Ui_StartWindow()
     start_window_ui.setupUi(StartWindow)
 
@@ -26,31 +34,34 @@ def start_app():
 
 ############################################# add manage panel #########################################################
     def add_fight_area():
+        if not FIGHTERS_LIST:
+            get_file_path()
+
         global NUMBER_OF_FIGHT_AREA
-        NUMBER_OF_FIGHT_AREA += 1
+        new_area_number = set_area_number(NUMBER_OF_FIGHT_AREA)
+        NUMBER_OF_FIGHT_AREA.append(new_area_number)
 
         global FightManage
         FightManage = QtWidgets.QMainWindow()
+        FightManage.setWindowIcon(QIcon("images/judo-main.png"))
         fight_manage_ui = Ui_ManagePanel()
         fight_manage_ui.setupUi(FightManage)
 
-        fight_manage_ui.open_manage_panel(NUMBER_OF_FIGHT_AREA, FIGHTERS_LIST)
-
-        ########################## open and close scoreboard ############################
-        fight_manage_ui.pushButton_open_scoreboard.clicked.connect(
-            lambda checked, index=NUMBER_OF_FIGHT_AREA: open_scoreboard(index)
-        )
-        fight_manage_ui.pushButton_close_scoreboard.clicked.connect(
-            lambda checked, index=NUMBER_OF_FIGHT_AREA: close_scoreboard(index)
-        )
-        #################################################################################
-
-        FIGHT_AREA_WINDOWS.append({'window':FightManage, 'ui':fight_manage_ui, 'index':NUMBER_OF_FIGHT_AREA})
+        FIGHT_AREA_WINDOWS.append({'window': FightManage, 'ui': fight_manage_ui, 'index': new_area_number})
         FIGHT_AREA_WINDOWS[-1]['window'].show()
 
+        fight_manage_ui.open_manage_panel(new_area_number, FIGHTERS_LIST)
+
+        NUMBER_OF_FIGHT_AREA.sort()
+
+        print("########## open manage panel ###########")
+        print(f"FIGHT_AREA_WINDOWS - {FIGHT_AREA_WINDOWS}")
+        print(f"SCOREBOARD_WINDOWS - {SCOREBOARD_WINDOWS}")
+        print(f"NUMBER_OF_FIGHT_AREA - {NUMBER_OF_FIGHT_AREA}")
 
         def open_scoreboard(index):
             ScoreboardWindow = QtWidgets.QMainWindow()
+            ScoreboardWindow.setWindowIcon(QIcon("images/judo-main.png"))
             ui_scoreboard = Ui_Scoreboard()
             ui_scoreboard.setupUi(ScoreboardWindow)
 
@@ -69,12 +80,40 @@ def start_app():
                         if manage_panel['index'] == index:
                             manage_panel['ui'].save_scoreboard_link(scoreboard)
 
-        def close_scoreboard(index):
+            print("########## open scoreboard ###########")
+            print(f"FIGHT_AREA_WINDOWS - {FIGHT_AREA_WINDOWS}")
+            print(f"SCOREBOARD_WINDOWS - {SCOREBOARD_WINDOWS}")
+            print(f"NUMBER_OF_FIGHT_AREA - {NUMBER_OF_FIGHT_AREA}")
+
+
+        def close_index_windows(index):
+
             for scoreboard in SCOREBOARD_WINDOWS:
                 if scoreboard['index'] == index:
                     scoreboard['window'].close()
-                    del scoreboard
+                    del SCOREBOARD_WINDOWS[SCOREBOARD_WINDOWS.index(scoreboard)]
 
+            for manage_panel in FIGHT_AREA_WINDOWS:
+                if manage_panel['index'] == index:
+                    manage_panel['window'].close()
+                    del FIGHT_AREA_WINDOWS[FIGHT_AREA_WINDOWS.index(manage_panel)]
+
+            del NUMBER_OF_FIGHT_AREA[NUMBER_OF_FIGHT_AREA.index(index)]
+
+            print("########## close scoreboard ###########")
+            print(f"FIGHT_AREA_WINDOWS - {FIGHT_AREA_WINDOWS}")
+            print(f"SCOREBOARD_WINDOWS - {SCOREBOARD_WINDOWS}")
+            print(f"NUMBER_OF_FIGHT_AREA - {NUMBER_OF_FIGHT_AREA}")
+
+
+        ########################## open and close scoreboard ############################
+        fight_manage_ui.pushButton_open_scoreboard.clicked.connect(
+            lambda checked, index=new_area_number: open_scoreboard(index)
+        )
+        fight_manage_ui.pushButton_close_scoreboard.clicked.connect(
+            lambda checked, index=new_area_number: close_index_windows(index)
+        )
+        #################################################################################
 
 ##################################### open chose data source window ####################################################
     def get_file_path():
@@ -101,14 +140,13 @@ def start_app():
             window['window'].close()
 
 
-        NUMBER_OF_FIGHT_AREA = 0
+        NUMBER_OF_FIGHT_AREA = [0]
         FIGHT_AREA_WINDOWS.clear()
         SCOREBOARD_WINDOWS.clear()
 
     ################################### start window buttons ##################################################
     start_window_ui.pushButton_add_fight_area.clicked.connect(add_fight_area)
     start_window_ui.pushButton_close_all.clicked.connect(close_all_windows)
-    start_window_ui.pushButton_add_fighters_list.clicked.connect(get_file_path)
     start_window_ui.pushButton_show_fighters_list.clicked.connect(show_fighters)
 
 
@@ -121,10 +159,7 @@ def load_list_from_exel():
         pass
     else:
         df = pd.read_excel(DATABASE_PATH)
-
         FIGHTERS_LIST = df.to_dict(orient='list')
-
-        print(FIGHTERS_LIST)
 
 
 if __name__ == '__main__':

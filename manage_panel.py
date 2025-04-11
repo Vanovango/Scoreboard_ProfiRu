@@ -934,7 +934,7 @@ class Ui_ManagePanel(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Управление табло"))
         self.label_weight_category_left.setText(_translate("MainWindow", ""))
         self.label_date_of_birth_left.setText(_translate("MainWindow", ""))
         self.label_team_left.setText(_translate("MainWindow", ""))
