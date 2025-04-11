@@ -2,8 +2,8 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 from start_window import Ui_StartWindow
 from manage_panel import Ui_ManagePanel
-from data_sourse import Ui_DataSource
 from scoreborde_user import Ui_Scoreboard
+
 
 import sys
 
@@ -77,28 +77,13 @@ def start_app():
 
 
 ##################################### open chose data source window ####################################################
-    def chose_data_source():
-        global DataSource
-        DataSource = QtWidgets.QMainWindow()
-        data_source_ui = Ui_DataSource()
-        data_source_ui.setupUi(DataSource)
+    def get_file_path():
+        global DATABASE_PATH
+        DATABASE_PATH = QtWidgets.QFileDialog.getOpenFileName()[0]
 
-        DataSource.show()
+        load_list_from_exel()
 
-        def get_file_path():
-            global DATABASE_PATH
-            DATABASE_PATH = QtWidgets.QFileDialog.getOpenFileName()[0]
 
-            load_list_from_exel()
-
-            DataSource.close()
-
-        def get_data_form_google():
-            pass
-
-        ################################ data source window buttons ####################################################
-        data_source_ui.pushButton_chose_file.clicked.connect(get_file_path)
-        data_source_ui.pushButton_connect_google.clicked.connect(get_data_form_google)
 
 ############################################ show fighters info ########################################################
     def show_fighters():
@@ -123,7 +108,7 @@ def start_app():
     ################################### start window buttons ##################################################
     start_window_ui.pushButton_add_fight_area.clicked.connect(add_fight_area)
     start_window_ui.pushButton_close_all.clicked.connect(close_all_windows)
-    start_window_ui.pushButton_add_fighters_list.clicked.connect(chose_data_source)
+    start_window_ui.pushButton_add_fighters_list.clicked.connect(get_file_path)
     start_window_ui.pushButton_show_fighters_list.clicked.connect(show_fighters)
 
 
@@ -132,11 +117,15 @@ def load_list_from_exel():
     import pandas as pd
     global FIGHTERS_LIST
 
-    df = pd.read_excel(DATABASE_PATH)
+    if DATABASE_PATH == '':
+        pass
+    else:
+        df = pd.read_excel(DATABASE_PATH)
 
-    FIGHTERS_LIST = df.to_dict(orient='list')
+        FIGHTERS_LIST = df.to_dict(orient='list')
 
-    print(FIGHTERS_LIST)
+        print(FIGHTERS_LIST)
+
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
