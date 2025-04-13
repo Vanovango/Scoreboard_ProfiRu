@@ -21,13 +21,13 @@ class Ui_ManagePanel(object):
         self.combobox_full_name_left = QtWidgets.QComboBox(self.centralwidget)
         font = QtGui.QFont()
         font.setFamily("Dubai Medium")
-        font.setPointSize(20)
+        font.setPointSize(16)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(7)
         self.combobox_full_name_left.setFont(font)
         self.combobox_full_name_left.setStyleSheet("\n"
-                                                   "    font: 57 20pt \"Dubai Medium\";\n"
+                                                   "    font: 57 18pt \"Dubai Medium\";\n"
                                                    "")
         self.combobox_full_name_left.setObjectName("label_full_name_left")
         self.verticalLayout_2.addWidget(self.combobox_full_name_left)
@@ -88,6 +88,7 @@ class Ui_ManagePanel(object):
                                            "padding-right: 10px;\n"
                                            "padding-left: 10px;")
         self.label_team_left.setObjectName("label_team_left")
+        self.label_team_left.setAlignment(QtCore.Qt.AlignCenter)
         self.horizontalLayout_2.addWidget(self.label_team_left)
         self.verticalLayout_2.addLayout(self.horizontalLayout_2)
         self.label_pass_left = QtWidgets.QLabel(self.centralwidget)
@@ -548,13 +549,13 @@ class Ui_ManagePanel(object):
         self.combobox_full_name_right = QtWidgets.QComboBox(self.centralwidget)
         font = QtGui.QFont()
         font.setFamily("Dubai Medium")
-        font.setPointSize(20)
+        font.setPointSize(16)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(7)
         self.combobox_full_name_right.setFont(font)
         self.combobox_full_name_right.setStyleSheet("\n"
-                                                    "    font: 57 20pt \"Dubai Medium\";\n"
+                                                    "    font: 57 18pt \"Dubai Medium\";\n"
                                                     "")
         self.combobox_full_name_right.setObjectName("label_full_name_right")
         self.verticalLayout_4.addWidget(self.combobox_full_name_right)
@@ -577,6 +578,7 @@ class Ui_ManagePanel(object):
                                             "padding-right: 10px;\n"
                                             "padding-left: 10px;")
         self.label_team_right.setObjectName("label_team_right")
+        self.label_team_right.setAlignment(QtCore.Qt.AlignCenter)
         self.horizontalLayout_5.addWidget(self.label_team_right)
         self.verticalLayout_5 = QtWidgets.QVBoxLayout()
         self.verticalLayout_5.setObjectName("verticalLayout_5")
@@ -1011,8 +1013,9 @@ class Ui_ManagePanel(object):
             self.minus_one_score(name, side)
 
 
-
     def set_winner(self, side):
+        from main import TEAMS_LIST
+
         font = QtGui.QFont()
         font.setFamily("Sitka Heading Semibold")
         font.setPointSize(40)
@@ -1029,11 +1032,15 @@ class Ui_ManagePanel(object):
                 self.label_pass_left.setAlignment(QtCore.Qt.AlignCenter)
                 self.label_pass_left.setStyleSheet("color: rgb(0, 255, 0);")
 
+                TEAMS_LIST[self.label_team_left.text()] += 1
+
             elif side == 'right':
                 self.label_pass_right.setText('Победа!')
                 self.label_pass_right.setFont(font)
                 self.label_pass_right.setAlignment(QtCore.Qt.AlignCenter)
                 self.label_pass_right.setStyleSheet("color: rgb(0, 255, 0);")
+
+                TEAMS_LIST[self.label_team_right.text()] += 1
 
 
     def open_manage_panel(self, number, fighters_list):
@@ -1043,9 +1050,7 @@ class Ui_ManagePanel(object):
             self.fighters_list = fighters_list
             self.combobox_full_name_left.addItems(self.fighters_list['Спортсмен'])
             self.combobox_full_name_right.addItems(self.fighters_list['Спортсмен'])
-        else:
-            self.combobox_full_name_left.addItem("Нет данных")
-            self.combobox_full_name_right.addItem("Нет данных")
+
 
 
     def minus_one_score(self, name, side):
@@ -1243,19 +1248,21 @@ class Ui_ManagePanel(object):
                 index = self.fighters_list['Спортсмен'].index(self.combobox_full_name_left.currentText())
 
                 self.label_date_of_birth_left.setText(f"Весовая кат. - {self.fighters_list['Вес кат'][index]}")
-                self.label_team_left.setText(f"Школа\n{self.fighters_list['Команда'][index]}")
+                self.label_team_left.setText(f"Команда\n{self.fighters_list['Команда'][index]}")
                 self.label_weight_category_left.setText(str(self.fighters_list['Год рождения'][index]).split()[0])
 
             elif side == 'right':
                 index = self.fighters_list['Спортсмен'].index(self.combobox_full_name_right.currentText())
 
                 self.label_date_of_birth_right.setText(f"Весовая кат. - {self.fighters_list['Вес кат'][index]}")
-                self.label_team_right.setText(f"Школа\n{self.fighters_list['Команда'][index]}")
+                self.label_team_right.setText(f"Команда\n{self.fighters_list['Команда'][index]}")
                 self.label_weight_category_right.setText(str(self.fighters_list['Год рождения'][index]).split()[0])
 
 
 
     def update_scoreboard(self):
+        from main import TEAMS_LIST
+
         if self.scoreboard_ui is not None:
             ########### main timer ###############
             self.scoreboard_ui.label_timer.setText(self.label_time_counter.text())
@@ -1273,15 +1280,19 @@ class Ui_ManagePanel(object):
             ############### fighter info ##################
             self.scoreboard_ui.label_weight_category_left.setText(self.label_weight_category_left.text())
             self.scoreboard_ui.label_date_left.setText(self.label_date_of_birth_left.text())
-            self.scoreboard_ui.label_school_left.setText(self.label_team_left.text())
+            self.scoreboard_ui.label_team_left.setText(self.label_team_left.text())
 
             self.scoreboard_ui.label_weight_category_right.setText(self.label_weight_category_right.text())
             self.scoreboard_ui.label_date_right.setText(self.label_date_of_birth_right.text())
-            self.scoreboard_ui.label_school_right.setText(self.label_team_right.text())
+            self.scoreboard_ui.label_team_right.setText(self.label_team_right.text())
 
             ###################### win or ban #####################
             self.scoreboard_ui.label_win_or_ban_left.setText(self.label_pass_left.text())
             self.scoreboard_ui.label_win_or_ban_right.setText(self.label_pass_right.text())
+
+            ###################### number of team wins #####################
+            self.scoreboard_ui.label_teams_wins_left.setText(str(TEAMS_LIST[self.label_team_left.text().split('\n')[1]]))
+            self.scoreboard_ui.label_teams_wins_right.setText(str(TEAMS_LIST[self.label_team_right.text().split('\n')[1]]))
 
             ################# punish or reward ##################
             self.scoreboard_ui.label_YKO_score_left.setText(self.label_YKO_score_left.text())

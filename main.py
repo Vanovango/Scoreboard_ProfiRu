@@ -13,6 +13,7 @@ NUMBER_OF_FIGHT_AREA = [0]
 FIGHT_AREA_WINDOWS = []
 SCOREBOARD_WINDOWS = []
 FIGHTERS_LIST = {}
+TEAMS_LIST = {}
 DATABASE_PATH = ''
 MATCHES_END_NUMBER = 0
 
@@ -174,14 +175,18 @@ def start_app():
 ####################################### load data about fighters from exel ############################################
 def load_list_from_exel():
     import pandas as pd
-    global FIGHTERS_LIST
+    global FIGHTERS_LIST, TEAMS_LIST
 
     if DATABASE_PATH == '':
         pass
     else:
         df = pd.read_excel(DATABASE_PATH)
+        df = df.replace('\xa0', '', regex=True)
         FIGHTERS_LIST = df.to_dict(orient='list')
 
+        # crate list of teams and they win numbers
+        for team in FIGHTERS_LIST['Команда']:
+            TEAMS_LIST[team] = 0
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)

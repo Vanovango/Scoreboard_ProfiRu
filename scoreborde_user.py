@@ -36,6 +36,10 @@ class Ui_Scoreboard(object):
         self.font_hold.setFamily("Arial")
         self.font_hold.setPointSize(25)
 
+        self.font_team_wins = QtGui.QFont()
+        self.font_team_wins.setFamily("Arial")
+        self.font_team_wins.setPointSize(50)
+
         self.font_label_score = QtGui.QFont()
         self.font_label_score.setFamily("Arial")
         self.font_label_score.setPointSize(30)
@@ -85,15 +89,15 @@ class Ui_Scoreboard(object):
         self.label_date_left.setAlignment(QtCore.Qt.AlignCenter)
         self.label_date_left.setObjectName("label_15")
         self.gridLayout_3.addWidget(self.label_date_left, 0, 1, 1, 1)
-        self.label_school_left = QtWidgets.QLabel(self.centralwidget)
-        self.label_school_left.setFont(self.font_fighter_info)
-        self.label_school_left.setStyleSheet("color: rgb(255, 255, 255);\n"
+        self.label_team_left = QtWidgets.QLabel(self.centralwidget)
+        self.label_team_left.setFont(self.font_fighter_info)
+        self.label_team_left.setStyleSheet("color: rgb(255, 255, 255);\n"
 "border: 1px solid rgb(140, 140, 140);\n"
 "border-radius: 20px;\n"
 "padding: 10px;")
-        self.label_school_left.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_school_left.setObjectName("label_16")
-        self.gridLayout_3.addWidget(self.label_school_left, 1, 0, 1, 2)
+        self.label_team_left.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_team_left.setObjectName("label_16")
+        self.gridLayout_3.addWidget(self.label_team_left, 1, 0, 1, 2)
         self.verticalLayout.addLayout(self.gridLayout_3)
         self.label_win_or_ban_left = QtWidgets.QLabel(self.centralwidget)
         self.label_win_or_ban_left.setFont(self.font_win_or_ban)
@@ -175,9 +179,13 @@ class Ui_Scoreboard(object):
         self.horizontalLayout.addLayout(self.verticalLayout)
         self.verticalLayout_3 = QtWidgets.QVBoxLayout()
         self.verticalLayout_3.setObjectName("verticalLayout_3")
-        self.label_17 = QtWidgets.QLabel(self.centralwidget)
-        self.label_17.setObjectName("label_17")
-        self.verticalLayout_3.addWidget(self.label_17)
+        self.label_teams_wins_left = QtWidgets.QLabel(self.centralwidget)
+        self.label_teams_wins_left.setObjectName("label_teams_wins_left")
+        self.label_teams_wins_left.setFont(self.font_team_wins)
+        self.label_teams_wins_left.setStyleSheet("color: rgb(255, 255, 255);\n"
+                                                "padding: 30px;")
+        self.label_teams_wins_left.setAlignment(QtCore.Qt.AlignCenter)
+        self.verticalLayout_3.addWidget(self.label_teams_wins_left)
         self.label_score_title_left = QtWidgets.QLabel(self.centralwidget)
         self.label_score_title_left.setFont(self.font_label_score)
         self.label_score_title_left.setStyleSheet("color: rgb(255, 255, 255);\n"
@@ -239,9 +247,13 @@ class Ui_Scoreboard(object):
         self.horizontalLayout.addLayout(self.gridLayout)
         self.verticalLayout_4 = QtWidgets.QVBoxLayout()
         self.verticalLayout_4.setObjectName("verticalLayout_4")
-        self.label_22 = QtWidgets.QLabel(self.centralwidget)
-        self.label_22.setObjectName("label_22")
-        self.verticalLayout_4.addWidget(self.label_22)
+        self.label_teams_wins_right = QtWidgets.QLabel(self.centralwidget)
+        self.label_teams_wins_right.setFont(self.font_team_wins)
+        self.label_teams_wins_right.setStyleSheet("color: rgb(255, 255, 255);\n"
+                                                 "padding: 30px;")
+        self.label_teams_wins_right.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_teams_wins_right.setObjectName("label_teams_wins_right")
+        self.verticalLayout_4.addWidget(self.label_teams_wins_right)
         self.label_score_title_right = QtWidgets.QLabel(self.centralwidget)
         self.label_score_title_right.setFont(self.font_label_score)
         self.label_score_title_right.setStyleSheet("color: rgb(255, 255, 255);\n"
@@ -273,15 +285,15 @@ class Ui_Scoreboard(object):
 
         self.gridLayout_4 = QtWidgets.QGridLayout()
         self.gridLayout_4.setObjectName("gridLayout_4")
-        self.label_school_right = QtWidgets.QLabel(self.centralwidget)
-        self.label_school_right.setFont(self.font_fighter_info)
-        self.label_school_right.setStyleSheet("color: rgb(255, 255, 255);\n"
+        self.label_team_right = QtWidgets.QLabel(self.centralwidget)
+        self.label_team_right.setFont(self.font_fighter_info)
+        self.label_team_right.setStyleSheet("color: rgb(255, 255, 255);\n"
 "border: 1px solid rgb(140, 140, 140);\n"
 "border-radius: 20px;\n"
 "padding: 10px;")
-        self.label_school_right.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_school_right.setObjectName("label_26")
-        self.gridLayout_4.addWidget(self.label_school_right, 1, 1, 1, 2)
+        self.label_team_right.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_team_right.setObjectName("label_26")
+        self.gridLayout_4.addWidget(self.label_team_right, 1, 1, 1, 2)
         self.label_weight_category_right = QtWidgets.QLabel(self.centralwidget)
         self.label_weight_category_right.setFont(self.font_fighter_info)
         self.label_weight_category_right.setStyleSheet("color: rgb(255, 255, 255);\n"
@@ -393,7 +405,7 @@ class Ui_Scoreboard(object):
         self.label_name_left.setText(_translate("MainWindow", "<html><head/><body><p>Иванов</p><p>Иван Иванович</p></body></html>"))
         self.label_weight_category_left.setText(_translate("MainWindow", "Весовая кат. - 22"))
         self.label_date_left.setText(_translate("MainWindow", "19.02.2005"))
-        self.label_school_left.setText(_translate("MainWindow", "Школа: Одинцовская СОШ 3"))
+        self.label_team_left.setText(_translate("MainWindow", "Команда: Одинцовская СОШ 3"))
         self.label_win_or_ban_left.setText(_translate("MainWindow", ""))
         self.label_8.setText(_translate("MainWindow", ""))
         self.label_YKO_left.setText(_translate("MainWindow", "ЮКО"))
@@ -405,17 +417,17 @@ class Ui_Scoreboard(object):
         self.label_IPPON_score_left.setText(_translate("MainWindow", "0"))
         self.label_SHIDO_score_left.setText(_translate("MainWindow", "0"))
         self.label_hold_left.setText(_translate("MainWindow", "УДЕРЖАНИЕ 0.0"))
-        self.label_17.setText(_translate("MainWindow", ""))
+        self.label_teams_wins_left.setText(_translate("MainWindow", "0\n\n"))
         self.label_score_title_left.setText(_translate("MainWindow", "Счет"))
         self.label_total_score_left.setText(_translate("MainWindow", "0"))
         self.label_timer.setText(_translate("MainWindow", " 00:00 "))
         self.label_title_time.setText(_translate("MainWindow", "Время"))
         self.pushButton_area_number.setText(_translate("MainWindow", "Ковер №1"))
-        self.label_22.setText(_translate("MainWindow", "TextLabel"))
+        self.label_teams_wins_right.setText(_translate("MainWindow", "0\n\n"))
         self.label_score_title_right.setText(_translate("MainWindow", "Счет"))
         self.label_total_score_right.setText(_translate("MainWindow", "0"))
         self.label_name_right.setText(_translate("MainWindow", "<html><head/><body><p align=\"right\">Иванов</p><p align=\"right\">Иван Иванович</p></body></html>"))
-        self.label_school_right.setText(_translate("MainWindow", "Школа: Одинцовская СОШ 3"))
+        self.label_team_right.setText(_translate("MainWindow", "Команда: Одинцовская СОШ 3"))
         self.label_weight_category_right.setText(_translate("MainWindow", "Весовая кат. - 22"))
         self.label_date_right.setText(_translate("MainWindow", "19.02.2005"))
         self.label_win_or_ban_right.setText(_translate("MainWindow", ""))
@@ -444,6 +456,7 @@ class Ui_Scoreboard(object):
             ################ upscale coefs ######################
             self.font_timer.setPointSize(new_size * 7)                            # 95
             self.font_label_time.setPointSize(int(new_size * 2.5))                # 50
+            self.font_team_wins.setPointSize(int(new_size * 2.5))
             self.font_name.setPointSize(int(new_size * 2))                        # 25
             self.font_fighter_info.setPointSize(int(new_size * 1.2))              # 20
             self.font_win_or_ban.setPointSize(new_size * 2)                       # 25
@@ -466,13 +479,16 @@ class Ui_Scoreboard(object):
             self.label_weight_category_right.setFont(self.font_fighter_info)
             self.label_date_left.setFont(self.font_fighter_info)
             self.label_date_right.setFont(self.font_fighter_info)
-            self.label_school_left.setFont(self.font_fighter_info)
-            self.label_school_right.setFont(self.font_fighter_info)
+            self.label_team_left.setFont(self.font_fighter_info)
+            self.label_team_right.setFont(self.font_fighter_info)
 
-            ###################### win or  ban label ####################3
+            ###################### win or  ban label ####################
             self.label_win_or_ban_left.setFont(self.font_win_or_ban)
             self.label_win_or_ban_right.setFont(self.font_win_or_ban)
 
+            ###################### number of team wins label ####################
+            self.label_teams_wins_left.setFont(self.font_team_wins)
+            self.label_teams_wins_right.setFont(self.font_team_wins)
 
             ##################### punish and reward ####################
             self.label_YKO_left.setFont(self.font_punish_and_succsess)
