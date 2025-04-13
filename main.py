@@ -63,10 +63,11 @@ def start_app():
 
         NUMBER_OF_FIGHT_AREA.sort()
 
-        print("########## open manage panel ###########")
-        print(f"FIGHT_AREA_WINDOWS - {FIGHT_AREA_WINDOWS}")
-        print(f"SCOREBOARD_WINDOWS - {SCOREBOARD_WINDOWS}")
-        print(f"NUMBER_OF_FIGHT_AREA - {NUMBER_OF_FIGHT_AREA}")
+        # test prints
+        # print("########## open manage panel ###########")
+        # print(f"FIGHT_AREA_WINDOWS - {FIGHT_AREA_WINDOWS}")
+        # print(f"SCOREBOARD_WINDOWS - {SCOREBOARD_WINDOWS}")
+        # print(f"NUMBER_OF_FIGHT_AREA - {NUMBER_OF_FIGHT_AREA}")
 
         def open_scoreboard(index):
             # open exist window or create new
@@ -96,11 +97,11 @@ def start_app():
                         if manage_panel['index'] == index:
                             manage_panel['ui'].save_scoreboard_link(scoreboard)
 
-            print("########## open scoreboard ###########")
-            print(f"FIGHT_AREA_WINDOWS - {FIGHT_AREA_WINDOWS}")
-            print(f"SCOREBOARD_WINDOWS - {SCOREBOARD_WINDOWS}")
-
-            print(f"NUMBER_OF_FIGHT_AREA - {NUMBER_OF_FIGHT_AREA}")
+            # test prints
+            # print("########## open scoreboard ###########")
+            # print(f"FIGHT_AREA_WINDOWS - {FIGHT_AREA_WINDOWS}")
+            # print(f"SCOREBOARD_WINDOWS - {SCOREBOARD_WINDOWS}")
+            # print(f"NUMBER_OF_FIGHT_AREA - {NUMBER_OF_FIGHT_AREA}")
 
         def close_index_windows(index):
             # close current window and scoreboard
@@ -116,10 +117,11 @@ def start_app():
 
             del NUMBER_OF_FIGHT_AREA[NUMBER_OF_FIGHT_AREA.index(index)]
 
-            print("########## close scoreboard ###########")
-            print(f"FIGHT_AREA_WINDOWS - {FIGHT_AREA_WINDOWS}")
-            print(f"SCOREBOARD_WINDOWS - {SCOREBOARD_WINDOWS}")
-            print(f"NUMBER_OF_FIGHT_AREA - {NUMBER_OF_FIGHT_AREA}")
+            # test prints
+            # print("########## close scoreboard ###########")
+            # print(f"FIGHT_AREA_WINDOWS - {FIGHT_AREA_WINDOWS}")
+            # print(f"SCOREBOARD_WINDOWS - {SCOREBOARD_WINDOWS}")
+            # print(f"NUMBER_OF_FIGHT_AREA - {NUMBER_OF_FIGHT_AREA}")
 
 
         ########################## open and close scoreboard ############################
@@ -157,10 +159,11 @@ def start_app():
 
         NUMBER_OF_FIGHT_AREA = [0]
 
-        print("########## close all windows ###########")
-        print(f"FIGHT_AREA_WINDOWS - {FIGHT_AREA_WINDOWS}")
-        print(f"SCOREBOARD_WINDOWS - {SCOREBOARD_WINDOWS}")
-        print(f"NUMBER_OF_FIGHT_AREA - {NUMBER_OF_FIGHT_AREA}")
+        # test prints
+        # print("########## close all windows ###########")
+        # print(f"FIGHT_AREA_WINDOWS - {FIGHT_AREA_WINDOWS}")
+        # print(f"SCOREBOARD_WINDOWS - {SCOREBOARD_WINDOWS}")
+        # print(f"NUMBER_OF_FIGHT_AREA - {NUMBER_OF_FIGHT_AREA}")
 
 
     ################################### start window buttons ##################################################

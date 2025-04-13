@@ -442,16 +442,16 @@ class Ui_Scoreboard(object):
             new_size = int((window_size[0] + window_size[1]) / 200)
 
             ################ upscale coefs ######################
-            self.font_timer.setPointSize(new_size * 8)                  # 95
-            self.font_label_time.setPointSize(new_size * 3)             # 50
-            self.font_name.setPointSize(new_size * 3)                   # 25
-            self.font_fighter_info.setPointSize(int(new_size * 1.5))    # 20
-            self.font_win_or_ban.setPointSize(new_size * 2)             # 25
-            self.font_punish_and_succsess.setPointSize(new_size * 2)    # 25
-            self.font_hold.setPointSize(new_size * 2)                   # 25
-            self.font_label_score.setPointSize(new_size * 3)            # 30
-            self.font_total_score.setPointSize(new_size * 4)            # 70
-            self.font_area_number.setPointSize(new_size * 2)            # 25
+            self.font_timer.setPointSize(new_size * 7)                            # 95
+            self.font_label_time.setPointSize(int(new_size * 2.5))                # 50
+            self.font_name.setPointSize(int(new_size * 2))                        # 25
+            self.font_fighter_info.setPointSize(int(new_size * 1.2))              # 20
+            self.font_win_or_ban.setPointSize(new_size * 2)                       # 25
+            self.font_punish_and_succsess.setPointSize(int(new_size * 1.5))       # 25
+            self.font_hold.setPointSize(int(new_size * 1.5))                      # 25
+            self.font_label_score.setPointSize(new_size * 2)                      # 30
+            self.font_total_score.setPointSize(new_size * 4)                      # 70
+            self.font_area_number.setPointSize(new_size * 2)                      # 25
             ##################################################
 
 
