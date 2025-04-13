@@ -1011,6 +1011,7 @@ class Ui_ManagePanel(object):
             self.minus_one_score(name, side)
 
 
+
     def set_winner(self, side):
         font = QtGui.QFont()
         font.setFamily("Sitka Heading Semibold")
