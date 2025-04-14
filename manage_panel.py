@@ -358,19 +358,25 @@ class Ui_ManagePanel(object):
         self.horizontalLayout_3.addLayout(self.verticalLayout_11)
         self.verticalLayout = QtWidgets.QVBoxLayout()
         self.verticalLayout.setObjectName("verticalLayout")
-        self.label_fight_area_number = QtWidgets.QLabel(self.centralwidget)
-        self.label_fight_area_number.setStyleSheet("background-color: rgb(0, 0, 0);\n"
-                                                   "color: rgb(166, 255, 0);\n"
-                                                   "font: 57 20pt \"Dubai Medium\";\n"
-                                                   "\n"
-                                                   "border-radius: 20px;\n"
-                                                   "\n"
-                                                   "width: 250px;\n"
-                                                   "height: 70px;\n"
-                                                   "")
-        self.label_fight_area_number.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_fight_area_number.setObjectName("label_fight_area_number")
-        self.verticalLayout.addWidget(self.label_fight_area_number)
+        self.pushbutton_fight_area_number_and_save = QtWidgets.QPushButton(self.centralwidget)
+        self.pushbutton_fight_area_number_and_save.setStyleSheet("QPushButton {\n"
+                                                      "    background-color: rgb(0, 0, 0);\n"
+                                                      "    color: rgb(166, 255, 0);\n"
+                                                      "    font: 57 15pt \"Dubai Medium\";\n"
+                                                      "\n"
+                                                      "    border-radius: 20px;\n"
+                                                      "\n"
+                                                      "    width: 150px;\n"
+                                                      "    height: 60px;\n"
+                                                      "        \n"
+                                                      "}\n"
+                                                      "\n"
+                                                      "\n"
+                                                      "QPushButton:hover {\n"
+                                                      "    background-color: rgb(83, 83, 83);\n"
+                                                      "}")
+        self.pushbutton_fight_area_number_and_save.setObjectName("pushbutton_fight_area_number_and_save")
+        self.verticalLayout.addWidget(self.pushbutton_fight_area_number_and_save)
         self.label_11 = QtWidgets.QLabel(self.centralwidget)
         self.label_11.setText("")
         self.label_11.setObjectName("label_11")
@@ -872,7 +878,7 @@ class Ui_ManagePanel(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
         ############## my code part ##################
-        self.functions()
+        self.functions(MainWindow)
 
 
         ##################################### change punish buttons #####################################
@@ -954,7 +960,7 @@ class Ui_ManagePanel(object):
         self.pushButton_left_stopwatch_stop.setText(_translate("MainWindow", "Стоп"))
         self.label_2.setText(_translate("MainWindow", "Очки"))
         self.label_sum_score_left.setText(_translate("MainWindow", "0"))
-        self.label_fight_area_number.setText(_translate("MainWindow", "Ковер №1"))
+        self.pushbutton_fight_area_number_and_save.setText(_translate("MainWindow", "Ковер №1\nСохранить данные"))
         self.label_title_time.setText(_translate("MainWindow", "Время"))
         self.label_time_counter.setText(_translate("MainWindow", "00:00"))
         self.pushButton_time_pause.setText(_translate("MainWindow", "Пауза"))
@@ -979,9 +985,11 @@ class Ui_ManagePanel(object):
         self.pushButton_right_stopwatch_start.setText(_translate("MainWindow", "Старт"))
         self.label_stopwatch_time_right.setText(_translate("MainWindow", "0.0"))
         self.pushButton_right_stopwatch_stop.setText(_translate("MainWindow", "Стоп"))
+        self.label_pass_left.setText(_translate("MainWindow", ""))
+        self.label_pass_right.setText(_translate("MainWindow", ""))
 
 
-    def functions(self):
+    def functions(self, MainWindow):
 
         ##################################### set winner ############################################
         self.pushbutton_win_left.clicked.connect(lambda: self.set_winner('left'))
@@ -1005,6 +1013,9 @@ class Ui_ManagePanel(object):
         self.combobox_full_name_left.currentTextChanged.connect(lambda: self.update_fighter_info('left'))
         self.combobox_full_name_right.currentTextChanged.connect(lambda: self.update_fighter_info('right'))
 
+        ############# save and reset #####################
+        self.pushbutton_fight_area_number_and_save.clicked.connect(lambda: self.save_and_reset(MainWindow))
+
 
     def check_button_event(self, event, name, side):
         if event.button() == Qt.LeftButton:
@@ -1014,7 +1025,6 @@ class Ui_ManagePanel(object):
 
 
     def set_winner(self, side):
-        from main import TEAMS_LIST
 
         font = QtGui.QFont()
         font.setFamily("Sitka Heading Semibold")
@@ -1032,19 +1042,15 @@ class Ui_ManagePanel(object):
                 self.label_pass_left.setAlignment(QtCore.Qt.AlignCenter)
                 self.label_pass_left.setStyleSheet("color: rgb(0, 255, 0);")
 
-                TEAMS_LIST[self.label_team_left.text()] += 1
-
             elif side == 'right':
                 self.label_pass_right.setText('Победа!')
                 self.label_pass_right.setFont(font)
                 self.label_pass_right.setAlignment(QtCore.Qt.AlignCenter)
                 self.label_pass_right.setStyleSheet("color: rgb(0, 255, 0);")
 
-                TEAMS_LIST[self.label_team_right.text()] += 1
-
 
     def open_manage_panel(self, number, fighters_list):
-        self.label_fight_area_number.setText(f"Ковер №{number}")
+        self.pushbutton_fight_area_number_and_save.setText(f"Ковер №{number}\nСохранить данные")
 
         if fighters_list:
             self.fighters_list = fighters_list
@@ -1263,6 +1269,10 @@ class Ui_ManagePanel(object):
     def update_scoreboard(self):
         from main import TEAMS_LIST
 
+        team_left = self.label_team_left.text().split('\n')[-1]
+        team_right = self.label_team_right.text().split('\n')[-1]
+
+
         if self.scoreboard_ui is not None:
             ########### main timer ###############
             self.scoreboard_ui.label_timer.setText(self.label_time_counter.text())
@@ -1291,8 +1301,15 @@ class Ui_ManagePanel(object):
             self.scoreboard_ui.label_win_or_ban_right.setText(self.label_pass_right.text())
 
             ###################### number of team wins #####################
-            self.scoreboard_ui.label_teams_wins_left.setText(str(TEAMS_LIST[self.label_team_left.text().split('\n')[1]]))
-            self.scoreboard_ui.label_teams_wins_right.setText(str(TEAMS_LIST[self.label_team_right.text().split('\n')[1]]))
+            try:
+                self.scoreboard_ui.label_teams_wins_left.setText(str(TEAMS_LIST[team_left]['Число побед']))
+            except:
+                self.scoreboard_ui.label_teams_wins_left.setText(str(0))
+
+            try:
+                self.scoreboard_ui.label_teams_wins_right.setText(str(TEAMS_LIST[team_right]['Число побед']))
+            except:
+                self.scoreboard_ui.label_teams_wins_right.setText(str(0))
 
             ################# punish or reward ##################
             self.scoreboard_ui.label_YKO_score_left.setText(self.label_YKO_score_left.text())
@@ -1311,7 +1328,83 @@ class Ui_ManagePanel(object):
 
 
 
+    def save_and_reset(self, MainWindow):
+        from main import TEAMS_LIST, RESULT_OF_FIGHTS
 
+        team_left = self.label_team_left.text().split('\n')[-1]
+        team_right = self.label_team_right.text().split('\n')[-1]
+
+        if RESULT_OF_FIGHTS:
+            RESULT_OF_FIGHTS[max(RESULT_OF_FIGHTS) + 1] = {
+                'ФИО1': self.combobox_full_name_left.currentText(),
+                'Команда1': team_left,
+                'Победил1': True if self.label_pass_left.text() == 'Победа!' else False,
+                'Набранные очки1': self.label_sum_score_left.text(),
+
+                'Набранные очки2': self.label_sum_score_right.text(),
+                'Победил2': True if self.label_pass_right.text() == 'Победа!' else False,
+                'Команда2': team_right,
+                'ФИО2': self.combobox_full_name_right.currentText()
+            }
+        else:
+            RESULT_OF_FIGHTS[1] = {
+                'ФИО1': self.combobox_full_name_left.currentText(),
+                'Команда1': team_left,
+                'Победил1': True if self.label_pass_left.text() == 'Победа!' else False,
+                'Набранные очки1': self.label_sum_score_left.text(),
+
+                'Набранные очки2': self.label_sum_score_right.text(),
+                'Победил2': True if self.label_pass_right.text() == 'Победа!' else False,
+                'Команда2': team_right,
+                'ФИО2': self.combobox_full_name_right.currentText()
+            }
+
+        # if both commands are in the list
+        if team_left in TEAMS_LIST and team_right in TEAMS_LIST:
+            if self.label_pass_left.text() == 'Победа!':
+                TEAMS_LIST[team_left]['Число побед'] += 1
+                TEAMS_LIST[team_left]['Всего очков'] += int(self.label_sum_score_left.text())
+
+            elif self.label_pass_right.text() == 'Победа!':
+                TEAMS_LIST[team_right]['Число побед'] += 1
+                TEAMS_LIST[team_right]['Всего очков'] += int(self.label_sum_score_right.text())
+
+        # if left command is in the list
+        elif team_left in TEAMS_LIST:
+            if self.label_pass_left.text() == 'Победа!':
+                TEAMS_LIST[team_left]['Число побед'] += 1
+                TEAMS_LIST[team_left]['Всего очков'] += int(self.label_sum_score_left.text())
+            elif self.label_pass_right.text() == 'Победа!':
+                TEAMS_LIST[team_right] = {'Число побед': 1, 'Всего очков': int(self.label_sum_score_right.text())}
+
+        # if right command is in the list
+        elif team_right in TEAMS_LIST:
+            if self.label_pass_left.text() == 'Победа!':
+                TEAMS_LIST[team_left] = {'Число побед': 1, 'Всего очков': int(self.label_sum_score_left.text())}
+            elif self.label_pass_right.text() == 'Победа!':
+                TEAMS_LIST[team_right]['Число побед'] += 1
+                TEAMS_LIST[team_right]['Всего очков'] += int(self.label_sum_score_right.text())
+
+        # if both commands are not in the list
+        else:
+            if self.label_pass_left.text() == 'Победа!':
+                TEAMS_LIST[team_left] = {'Число побед': 1, 'Всего очков': int(self.label_sum_score_left.text())}
+            elif self.label_pass_right.text() == 'Победа!':
+                TEAMS_LIST[team_right] = {'Число побед': 1, 'Всего очков': int(self.label_sum_score_right.text())}
+
+
+        # # test prints
+        # print("########## RESULT_OF_FIGHTS ############")
+        # for match in RESULT_OF_FIGHTS:
+        #     print(f"{match}: {RESULT_OF_FIGHTS[match]}")
+        #
+        # print("########## TEAMS_LIST ############")
+        # for team in TEAMS_LIST:
+        #     print(f"{team}: {TEAMS_LIST[team]}")
+        #
+        # print("########################################")
+
+        self.retranslateUi(MainWindow)
 
 
 
