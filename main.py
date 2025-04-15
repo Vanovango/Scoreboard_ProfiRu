@@ -28,7 +28,7 @@ def set_area_number(areas_list):
 def start_app():
     global StartWindow
     StartWindow = QtWidgets.QMainWindow()
-    StartWindow.setWindowIcon(QIcon("images/judo-main.png"))
+    StartWindow.setWindowIcon(QIcon("./judo-main.png"))
     start_window_ui = Ui_StartWindow()
     start_window_ui.setupUi(StartWindow)
 
@@ -53,7 +53,7 @@ def start_app():
         if open_new_window:
             global FightManage
             FightManage = QtWidgets.QMainWindow()
-            FightManage.setWindowIcon(QIcon("images/judo-main.png"))
+            FightManage.setWindowIcon(QIcon("./judo-main.png"))
             fight_manage_ui = Ui_ManagePanel()
             fight_manage_ui.setupUi(FightManage)
 
@@ -81,7 +81,7 @@ def start_app():
 
             if open_new_scoreboard:
                 ScoreboardWindow = QtWidgets.QMainWindow()
-                ScoreboardWindow.setWindowIcon(QIcon("images/judo-main.png"))
+                ScoreboardWindow.setWindowIcon(QIcon("./judo-main.png"))
                 ui_scoreboard = Ui_Scoreboard()
                 ui_scoreboard.setupUi(ScoreboardWindow)
 

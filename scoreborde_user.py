@@ -225,7 +225,7 @@ class Ui_Scoreboard(object):
         self.label_title_time.setObjectName("label_title_time")
         self.gridLayout.addWidget(self.label_title_time, 1, 0, 1, 1)
         self.label_company_logo = QtWidgets.QLabel(self.centralwidget)
-        self.label_company_logo.setPixmap(QPixmap("./images/company_logo.jpg").scaled(400, 400))
+        self.label_company_logo.setPixmap(QPixmap("./company_logo.jpg").scaled(400, 400))
         self.label_company_logo.setAlignment(QtCore.Qt.AlignCenter)
         self.label_company_logo.setObjectName("label_company_logo")
         self.gridLayout.addWidget(self.label_company_logo, 3, 0, 1, 1)
