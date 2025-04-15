@@ -422,7 +422,7 @@ class Ui_Scoreboard(object):
         self.label_total_score_left.setText(_translate("MainWindow", "0"))
         self.label_timer.setText(_translate("MainWindow", " 00:00 "))
         self.label_title_time.setText(_translate("MainWindow", "Время"))
-        self.pushButton_area_number.setText(_translate("MainWindow", "Ковер №1"))
+        self.pushButton_area_number.setText(_translate("MainWindow", "Татами №1"))
         self.label_teams_wins_right.setText(_translate("MainWindow", "0\n\n"))
         self.label_score_title_right.setText(_translate("MainWindow", "Счет"))
         self.label_total_score_right.setText(_translate("MainWindow", "0"))
@@ -447,7 +447,7 @@ class Ui_Scoreboard(object):
             self.pushButton_area_number.clicked.connect(lambda: self.update_font(MainWindow))
 
     def change_area_number(self, number):
-        self.pushButton_area_number.setText(f"Ковер №{number}")
+        self.pushButton_area_number.setText(f"Татами №{number}")
 
     def update_font(self, MainWindow):
             window_size = (MainWindow.width(), MainWindow.height())

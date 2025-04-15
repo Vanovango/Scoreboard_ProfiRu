@@ -362,7 +362,7 @@ class Ui_ManagePanel(object):
         self.pushbutton_fight_area_number_and_save.setStyleSheet("QPushButton {\n"
                                                       "    background-color: rgb(0, 0, 0);\n"
                                                       "    color: rgb(166, 255, 0);\n"
-                                                      "    font: 57 15pt \"Dubai Medium\";\n"
+                                                      "    font: 57 14pt \"Dubai Medium\";\n"
                                                       "\n"
                                                       "    border-radius: 20px;\n"
                                                       "\n"
@@ -469,7 +469,7 @@ class Ui_ManagePanel(object):
         self.pushButton_close_scoreboard.setStyleSheet("QPushButton {\n"
                                                        "    background-color: rgb(0, 0, 0);\n"
                                                        "    color: rgb(166, 255, 0);\n"
-                                                       "    font: 57 15pt \"Dubai Medium\";\n"
+                                                       "    font: 57 14pt \"Dubai Medium\";\n"
                                                        "\n"
                                                        "    border-radius: 20px;\n"
                                                        "\n"
@@ -488,7 +488,7 @@ class Ui_ManagePanel(object):
         self.pushButton_open_scoreboard.setStyleSheet("QPushButton {\n"
                                                       "    background-color: rgb(0, 0, 0);\n"
                                                       "    color: rgb(166, 255, 0);\n"
-                                                      "    font: 57 15pt \"Dubai Medium\";\n"
+                                                      "    font: 57 14pt \"Dubai Medium\";\n"
                                                       "\n"
                                                       "    border-radius: 20px;\n"
                                                       "\n"
@@ -942,7 +942,7 @@ class Ui_ManagePanel(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Управление табло"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Управление татами"))
         self.label_weight_category_left.setText(_translate("MainWindow", ""))
         self.label_date_of_birth_left.setText(_translate("MainWindow", ""))
         self.label_team_left.setText(_translate("MainWindow", ""))
@@ -960,7 +960,7 @@ class Ui_ManagePanel(object):
         self.pushButton_left_stopwatch_stop.setText(_translate("MainWindow", "Стоп"))
         self.label_2.setText(_translate("MainWindow", "Очки"))
         self.label_sum_score_left.setText(_translate("MainWindow", "0"))
-        self.pushbutton_fight_area_number_and_save.setText(_translate("MainWindow", "Ковер №1\nСохранить данные"))
+        self.pushbutton_fight_area_number_and_save.setText(_translate("MainWindow", "Татами №1\nСохранить данные"))
         self.label_title_time.setText(_translate("MainWindow", "Время"))
         self.label_time_counter.setText(_translate("MainWindow", "00:00"))
         self.pushButton_time_pause.setText(_translate("MainWindow", "Пауза"))
@@ -1050,7 +1050,7 @@ class Ui_ManagePanel(object):
 
 
     def open_manage_panel(self, number, fighters_list):
-        self.pushbutton_fight_area_number_and_save.setText(f"Ковер №{number}\nСохранить данные")
+        self.pushbutton_fight_area_number_and_save.setText(f"Татами №{number}\nСохранить данные")
 
         if fighters_list:
             self.fighters_list = fighters_list

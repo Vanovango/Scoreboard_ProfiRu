@@ -53,7 +53,7 @@ class Ui_StartWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Главная"))
-        self.pushButton_add_fight_area.setText(_translate("MainWindow", "Добавить мониторинг ковра"))
+        self.pushButton_add_fight_area.setText(_translate("MainWindow", "Добавить мониторинг татами"))
         self.pushButton_close_all.setText(_translate("MainWindow", "Закрыть все окна"))
         self.label_title.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\">Табло </p><p align=\"center\">для проведения </p><p align=\"center\">соревнований по Дзюдо</p></body></html>"))
         self.pushButton_save_results.setText(_translate("MainWindow", "Сохранить результаты"))
@@ -64,11 +64,9 @@ class Ui_StartWindow(object):
 
     @staticmethod
     def save_results():
-        print(111)
         import os
         import pandas as pd
-        from openpyxl import Workbook
-        from openpyxl.utils.dataframe import dataframe_to_rows
+
         from PyQt5.QtWidgets import (QApplication, QFileDialog, QMessageBox)
         from PyQt5.QtCore import QCoreApplication
 
