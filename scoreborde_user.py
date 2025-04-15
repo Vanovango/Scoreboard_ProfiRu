@@ -1,4 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtGui import QPixmap
 
 
 class Ui_Scoreboard(object):
@@ -223,10 +224,11 @@ class Ui_Scoreboard(object):
         self.label_title_time.setAlignment(QtCore.Qt.AlignCenter)
         self.label_title_time.setObjectName("label_title_time")
         self.gridLayout.addWidget(self.label_title_time, 1, 0, 1, 1)
-        self.label_19 = QtWidgets.QLabel(self.centralwidget)
-        self.label_19.setText("")
-        self.label_19.setObjectName("label_19")
-        self.gridLayout.addWidget(self.label_19, 3, 0, 1, 1)
+        self.label_company_logo = QtWidgets.QLabel(self.centralwidget)
+        self.label_company_logo.setPixmap(QPixmap("./images/company_logo.jpg").scaled(400, 400))
+        self.label_company_logo.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_company_logo.setObjectName("label_company_logo")
+        self.gridLayout.addWidget(self.label_company_logo, 3, 0, 1, 1)
 
         self.pushButton_area_number = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_area_number.setFont(self.font_area_number)
